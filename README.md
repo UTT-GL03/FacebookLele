@@ -3,12 +3,12 @@
 
 ## Choix du sujet
 
-L’utilisation quotidienne des réseaux sociaux représente aujourd’hui une part considérable du temps d’écran de nombreux utilisateurs.  
+L’utilisation quotidienne des réseaux sociaux représente aujourd’hui une part considérable du temps d’écran de nombreux utilisateurs, plus de 60% de la population mondiale en 2023 les utilisait [(source : Libération)](https://www.liberation.fr/lifestyle/plus-de-60-de-la-population-mondiale-utilise-les-reseaux-sociaux-20230727_JLXQN6EVX5GBVLO2CI6VZY4YLM/).  
 Pour notre part, la consultation de **Facebook** (ou de services similaires) sur smartphone et ordinateur portable représente environ **3 à 4 heures par semaine**.  
 Il nous a donc semblé pertinent de réfléchir à la manière de **concevoir un réseau social plus sobre et plus respectueux de l’environnement**.
 
-Au-delà de nos cas personnels, **Facebook compte plus de 3 milliards d’utilisateurs actifs mensuels** (source : Meta, 2024).  
-En **France**, plus de **70% de la population** utilise au moins un réseau social chaque jour (source : We Are Social).  
+Au-delà de nos cas personnels, **Facebook compte plus de 3 milliards d’utilisateurs actifs mensuels** [(source : Meta, 2024 via FranceInfo)](https://www.franceinfo.fr/internet/reseaux-sociaux/facebook/de-facebook-a-meta-cinq-chiffres-qui-montrent-comment-le-reseau-de-mark-zuckerberg-est-devenu-un-geant-economique_6325794.html).  
+En **France**, plus de **75% de la population** utilise au moins un réseau social chaque jour [(source : We Are Social)](https://wearesocial.com/fr/blog/2025/02/digital-report-france-2025-%F0%9F%87%AB%F0%9F%87%B7/).  
 
 L’impact environnemental d’une telle infrastructure numérique est colossal :  
 - serveurs,  
@@ -43,10 +43,10 @@ Le défi est donc de **préserver les fonctions sociales essentielles** comme la
 ## Effets de la numérisation
 
 La généralisation des réseaux sociaux a entraîné une **explosion du trafic Internet mondial**.  
-En 2024, le **streaming vidéo**, les **photos** et les **échanges de données sociales** représentaient plus de **la moitié du trafic global** (source : Cisco).  
+En 2025, le **streaming vidéo**, les **photos** et les **échanges de données sociales** représentaient presque **la moitié du trafic global** [(source : ARCEP)](https://www.arcep.fr/actualites/actualites-et-communiques/detail/n/numerique-040725.html).  
 
 Le poids écologique de ces usages est loin d’être négligeable :  
-- Chaque minute passée sur un réseau social génère **plusieurs grammes d’équivalent CO₂** (source : The Shift Project).  
+- Chaque minute passée sur un réseau social génère **plusieurs grammes d’équivalent CO₂**.  
 - L’**hébergement des données**, les **serveurs de recommandation** et le **chargement permanent** des flux d’images/vidéos sont particulièrement énergivores.  
 - Les **notifications** et **algorithmes d’engagement** favorisent une **augmentation du temps d’écran**, ce qui accentue un impact global **non nécessaire**.  
 
