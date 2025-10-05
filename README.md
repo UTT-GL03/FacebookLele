@@ -59,4 +59,76 @@ Nous serons particulièrement attentifs à ces différents points lors de la con
 
 Notre ambition n’est pas simplement de “refaire Facebook”, mais de **proposer une alternative plus sobre, plus éthique et plus durable**, sans sacrifier la fonction première : **relier les gens**.  
 
+---
 
+# Scénarios d’usage et impacts
+
+Nous allons maintenant passer à l'étude de scénarios pour avoir une base d'étude, nous allons faire différents scénarios réalistes au maximum. L'utilisateur consulte son réseau social plusieurs fois par jours, à tout moment lorsqu'il a une petite pause. 
+Ces scénarios cherchent à représenter **des usages typiques** permettant d’évaluer l’impact environnemental du service numérique.  
+
+Chaque scénario correspond à **une suite d’actions réalistes**, effectuées sur le site principal ou sur des fonctionnalités populaires comme les Reels, les groupes ou la messagerie.  
+Ils permettront de comparer les impacts de différentes plateformes sociales (Facebook, Instagram, X/Twitter) dans des conditions d’usage similaires.
+
+---
+
+## Application principale : Facebook
+
+### Scénario 1 — Consultation de contenus courts et groupes communautaires
+
+**Pages concernées :**  
+- Main website : (https://www.facebook.com/)  
+- Reels page : (https://www.facebook.com/reel/)  
+- Groups feed : (https://www.facebook.com/groups/feed/)
+
+**Description du scénario :**
+1. L’utilisateur ouvre Facebook via un favori (sans passer par un moteur de recherche).  
+2. Il consulte son fil d’actualité principal pendant quelques minutes (scroll continu).  
+3. Il clique sur l’onglet **Reels**, regarde deux vidéos de quelques secondes chacune.  
+4. Il revient à la page principale, puis se rend sur la section **Groupes**.  
+5. Il parcourt les publications de plusieurs groupes auxquels il est abonné.  
+
+Ce scénario permet d’observer **l’impact du défilement de flux dynamiques** et **du chargement de contenus vidéo courts**.
+
+---
+
+### Scénario 2 — Navigation personnelle et messagerie instantanée
+
+**Pages concernées :**  
+- Main website : (https://www.facebook.com/)
+- Personal page : (https://www.facebook.com/remi.tourneau.9/)
+- Chatbox page : (https://www.facebook.com/messages)
+
+**Description du scénario :**
+1. L’utilisateur ouvre Facebook via un favori.  
+2. Il visite son **profil personnel** pour vérifier ou modifier une publication.  
+3. Il ouvre ensuite la **messagerie instantanée**, échange 1 ou 2 messages textuels.
+4. Il revient à la page d’accueil avant de fermer la session.  
+
+Ce scénario vise à mesurer l’impact des **interactions sociales directes** et de la **messagerie en ligne**.
+
+---
+
+### Scénario 3 — Publication et interaction sociale
+
+**Pages concernées :**  
+- Main website : (https://www.facebook.com/)  
+- Create post : (https://www.facebook.com/compose/post)  
+- Notifications page : (https://www.facebook.com/notifications)  
+
+**Description du scénario :**
+1. L’utilisateur ouvre Facebook via un favori.    
+2. Il décide de **publier une photo** accompagnée d’un court texte.  
+3. Après publication, il clique sur une **publication d’un ami**, y laisse un commentaire, puis quitte la plateforme.  
+
+Ce scénario permet d’analyser l’impact énergétique lié à :
+- l’**envoi (upload)** d’un média (photo ou vidéo),  
+- et les **interactions actives** (commentaires, réactions, notifications).  
+
+Il illustre un **usage participatif** typique d’un réseau social, plus énergivore que la simple consultation passive.
+
+---
+
+Ces scénarios seront utilisés et analysés avec **GreenIT Analysis** pour comparer :
+- la consommation énergétique des différentes plateformes,  
+- les effets du contenu chargé (texte, image, vidéo),  
+- et l’impact de fonctionnalités interactives comme la messagerie ou les Reels.
