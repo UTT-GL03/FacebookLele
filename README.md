@@ -208,6 +208,10 @@ Il repose sur quatre principes :
 
 **Tableau 2 : Simulation simplifiée des revenus potentiels.**
 
+Sources :
+https://www.statista.com/topics/5063/online-advertising-metrics/?srsltid=AfmBOopj3k6h5mKiE7X7YOaHoswBVkd_kfaQgUihLxLwHkek8PPbNQgj#statisticChapter
+https://joinmastodon.org/reports/Mastodon%20Annual%20Report%202023.pdf
+
 ---
 
 ## Synthèse
