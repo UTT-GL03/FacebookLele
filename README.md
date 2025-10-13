@@ -126,12 +126,57 @@ Ce scénario permet d’analyser l’impact énergétique lié à :
 
 Il illustre un **usage participatif** typique d’un réseau social, plus énergivore que la simple consultation passive.
 
----
-
 Ces scénarios seront utilisés et analysés avec **GreenIT Analysis** pour comparer :
 - la consommation énergétique des différentes plateformes,  
 - les effets du contenu chargé (texte, image, vidéo),  
 - et l’impact de fonctionnalités interactives comme la messagerie ou les Reels.
+
+---
+# Analyse environnementale de Facebook — GreenIT
+
+### Pourquoi GreenIT Analysis ?
+Le service EcoIndex.fr, bien qu’efficace pour mesurer la performance environnementale des pages web, n’est pas compatible avec Facebook.  
+En effet, Facebook bloque les robots d’analyse automatiques, empêchant toute collecte directe des données nécessaires (nombre de requêtes, taille des pages, etc.).
+
+Pour contourner cette limite, nous avons utilisé l’extension navigateur GreenIT Analysis, qui permet de :
+- réaliser des mesures manuelles en conditions réelles d’usage,  
+- capturer les données de performance environnementale d’une page visitée,  
+- et obtenir une estimation de l’impact carbone et hydrique liée à l’affichage.
+
+Cette méthode garantit des résultats représentatifs des scénarios définis, tout en respectant les contraintes techniques imposées par Facebook.
+
+L'EcoIndex d'une page (de A à G) est calculé (sources : EcoIndex, Octo, GreenIT) en fonction du positionnement de cette page parmi les pages mondiales concernant :
+
+ - le nombre de requêtes lancées,
+ - le poids des téléchargements,
+ - le nombre d'éléments du document.
+
+## Résultats obtenus (via GreenIT Analysis)
+
+| Scénario | Moyenne requêtes | Taille moyenne (Ko) | EcoIndex | Note | Émissions GES (gCO₂e) | Eau (cl) | Détail |
+|-----------|------------------|---------------------|-----------|--------|-----------------------|----------|-----------|
+| 1 — Consultation et Reels | ~600 | 25 000–50 000 | 4.7 | G 🟥 | 2.9 | 4.3 |[Voir le fichier](./data/Scénario%201%20GreenIT.csv) |
+| 2 — Navigation & Messagerie | ~250 | 3 000–9 000 | 9.5 | F-G 🟪 | 2.8 | 4.2 |[Voir le fichier](./data/Scénario%202%20GreenIT.csv) |
+| 3 — Publication & Interaction | ~700 | 7 000–35 000 | 5.0 | G 🟥 | 2.9 | 4.4 |[Voir le fichier](./data/Scénario%203%20GreenIT.csv) |
+
+## Analyse et interprétation
+
+Les résultats montrent des différences notables selon le type d’usage :
+
+- 🔴 **Scénario 1** (Reels et groupes) est le plus énergivore : les vidéos courtes entraînent de lourds téléchargements (>30 Mo) et un grand nombre de requêtes (>900).
+- 🟠 **Scénario 3** (publication et interactions) présente également un impact important, principalement lié à l’upload d’images et au rechargement du flux.
+- 🟡 **Scénario 2** (messagerie) est le moins impactant, les échanges textuels générant moins de transferts de données.
+
+Globalement, Facebook obtient une note moyenne entre F et G, ce qui indique une faible performance environnementale.  
+Les pages les plus lourdes contiennent de nombreux scripts, traqueurs et contenus vidéo, qui augmentent à la fois le poids des pages et la consommation d’énergie lors du rendu.
+
+## Comparaison qualitative avec d’autres réseaux sociaux
+
+| Plateforme | Type de contenu dominant | Impact estimé | Commentaire |
+|-------------|--------------------------|----------------|--------------|
+| **Facebook** | Mix texte, images, vidéos | 🔴 Élevé (E–G) | Nombreuses requêtes, scripts et traqueurs |
+| **Instagram** | Photos et Reels | 🔴 Très élevé (F–G) | Contenu vidéo et image très lourd |
+| **X / Twitter** | Texte + images légères | 🟠 Moyen (C–D) | Interface plus légère, peu de vidéos |
 
 ---
 
