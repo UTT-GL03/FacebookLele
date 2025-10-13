@@ -132,3 +132,95 @@ Ces scénarios seront utilisés et analysés avec **GreenIT Analysis** pour comp
 - la consommation énergétique des différentes plateformes,  
 - les effets du contenu chargé (texte, image, vidéo),  
 - et l’impact de fonctionnalités interactives comme la messagerie ou les Reels.
+
+---
+
+# Modèle économique
+
+## Introduction
+
+Le modèle économique d’un service numérique influence directement son impact environnemental, sa viabilité et sa relation avec les utilisateurs.  
+Dans le cas d’un réseau social, ces choix conditionnent non seulement la consommation de ressources techniques (hébergement, stockage, calcul), mais aussi la manière dont les données personnelles sont traitées.  
+Notre objectif est de concevoir un réseau social **sobre**, **éthique** et **respectueux de l’identité numérique**, en rupture avec les pratiques dominantes du secteur.
+
+---
+
+## Analyse des modèles existants
+
+| Service | Type de financement principal | Données collectées | Caractéristiques principales |
+|----------|-------------------------------|--------------------|------------------------------|
+| **Facebook / Instagram (Meta)** | Publicité ciblée (régie intégrée) | Très importante (profils, interactions, comportements) | Gratuit, dépend fortement du suivi et de la personnalisation algorithmique |
+| **X (ex-Twitter)** | Publicité ciblée + Abonnement “Premium” | Importante | Contenu promu, options supplémentaires pour abonnés |
+| **LinkedIn** | Publicité ciblée + Services payants | Importante (professionnelle) | Contenu sponsorisé, outils premium |
+| **Mastodon** | Dons / financement participatif | Aucune | Gratuit, sans publicité, décentralisé |
+| **Diaspora*** | Dons / auto-hébergement | Aucune | Gratuit, sans publicité, contrôle local des données |
+
+**Tableau 1 : Comparaison synthétique des modèles économiques de réseaux sociaux.**
+
+Deux tendances majeures se dégagent :
+
+1. **Le modèle publicitaire basé sur la collecte de données**  
+   - Financement par la vente d’espaces publicitaires ciblés.  
+   - Gratuité apparente pour l’utilisateur, mais forte exploitation des données personnelles.  
+   - Très énergivore : collecte, stockage et analyse de données massives.
+
+2. **Le modèle participatif ou communautaire**  
+   - Financement par dons, hébergement mutualisé ou services complémentaires.  
+   - Aucun suivi ni publicité, mais dépendance à une base d’utilisateurs engagés.  
+   - Modèle plus transparent, mais souvent limité en visibilité et en revenus.
+
+---
+
+## Modèle économique proposé
+
+Notre réseau social s’inscrit dans une logique de **sobriété technologique** et de **transparence économique**.  
+Il repose sur quatre principes :
+
+### 1. Aucune collecte ni revente de données
+- Aucune donnée personnelle n’est exploitée à des fins commerciales.  
+- Pas de cookies tiers, ni de traçage, ni de profilage.  
+- Cette approche réduit la charge serveur et renforce la confiance des utilisateurs.
+
+### 2. Publicités simples et non ciblées
+- Publicités **statiques** et **non intrusives**.  
+- Diffusion aléatoire ou contextuelle (jamais comportementale).  
+- Pas de scripts externes, pas d’appels à des services de tracking.  
+- Objectif : assurer un revenu de base sans compromettre la confidentialité.
+
+### 3. Accès gratuit pour tous
+- Le service est **entièrement gratuit** afin de favoriser l’accessibilité et la participation.  
+- La publicité intégrée sert uniquement à financer l’hébergement, la maintenance et le développement.
+
+### 4. Financement complémentaire par dons
+- Les utilisateurs peuvent soutenir le projet par des **dons volontaires** (mensuels ou ponctuels).  
+- Ce financement communautaire renforce l’indépendance du projet vis-à-vis des régies publicitaires.
+
+---
+
+## Estimation des sources de revenus
+
+| Source de revenu | Montant unitaire estimé | Volume nécessaire pour financer un poste à plein temps* |
+|------------------|--------------------------|----------------------------------------------------------|
+| Publicité non ciblée (régie interne) | ~0,001 € / affichage | ~3 000 000 affichages/mois |
+| Don volontaire (moyenne) | 5 € / don | ~480 dons/an |
+
+\* Estimations basées sur un salaire brut annuel de 28 000 €.
+
+**Tableau 2 : Simulation simplifiée des revenus potentiels.**
+
+---
+
+## Synthèse
+
+Le modèle retenu se caractérise par :
+
+- **Indépendance vis-à-vis des régies publicitaires externes** ;  
+- **Simplicité technique et sobriété énergétique** ;  
+- **Respect total de la vie privée des utilisateurs** ;  
+- **Transparence du financement** (publicités internes + dons).  
+
+Ce modèle se veut durable, équilibré et compatible avec une approche plus responsable du numérique.  
+Il permet de maintenir un service social en ligne sans exploitation des données ni recours à des infrastructures lourdes ou opaques.
+
+---
+
