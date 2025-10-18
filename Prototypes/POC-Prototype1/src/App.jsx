@@ -1,9 +1,10 @@
 import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route, Link, useParams } from 'react-router-dom'
 import facebookLeleLogo from './assets/logoFacebooklele.svg'
 import './App.css'
 
 function App() {
-  const [posts, setPosts] = useState([
+  const [posts] = useState([
   {
     id: 1,
     author: "Alice",
@@ -24,14 +25,15 @@ function App() {
 
 
   return (
-    <div className="app">
+    <Router>
       <Header />
       <main className="posts-container">
-        {posts.map((p) => (
-          <Post key={p.id} post={p} />
-        ))}
+        <Routes>
+          <Route path="/" element={<HomePage posts={posts} />} />
+          <Route path="/post/:id" element={<PostPage posts={posts} />} />
+        </Routes>
       </main>
-    </div>
+    </Router>
   );
 }
 
@@ -39,9 +41,9 @@ function Header(){
   return (
     <header className="header">
       <div className="top-bar">
-          <a href="http://localhost:3000/"> {/* A changer peut-être*/}
-            <img src={facebookLeleLogo} className="logo" alt="FacebookLele logo" />
-          </a>
+          <Link to="/">
+          <img src={facebookLeleLogo} className="logo" alt="FacebookLele logo" />
+        </Link>
         <input type="text" placeholder="Search..." className="search-bar" />
         {/* Faire un nav bar ici peut-être*/}
       </div>
@@ -50,17 +52,53 @@ function Header(){
   );
 }
 
+function HomePage({ posts }) {
+  return (
+    <>
+      {posts.map((p) => (
+        <Post key={p.id} post={p} />
+      ))}
+    </>
+  );
+}
+
+
 function Post({ post }) {
   return (
-    <div className="post">
-      <div className="post-header">
-        <h3 className="post-title">{post.title}</h3>
-        <p className="post-meta">Publié par {post.author} le {post.date}</p>
+    <Link to={`/post/${post.id}`} className="post-link">
+      <div className="post">
+        <div className="post-header">
+          <h3 className="post-title">{post.title}</h3>
+          <p className="post-meta">
+            Publié par {post.author} le {post.date}
+          </p>
+        </div>
+        <div className="post-content">
+          <p>{post.content}</p>
+          {post.image && <img src={post.image} alt={post.title} className="post-image" />}
+        </div>
       </div>
-      <div className="post-content">
-        <p>{post.content}</p>
-        {post.image && <img src={post.image} alt={post.title} className="post-image" />}
-      </div>
+    </Link>
+  );
+}
+
+function PostPage({ posts }) {
+  const { id } = useParams();
+  const post = posts.find((p) => p.id === Number(id));
+
+  if (!post) {
+    return <p>Post introuvable</p>;
+  }
+
+  return (
+    <div className="post-page">
+      <h2>{post.title}</h2>
+      <p className="post-meta">
+        Publié par {post.author} le {post.date}
+      </p>
+      <p>{post.content}</p>
+      {post.image && <img src={post.image} alt={post.title} />}
+      <Link to="/" className="back-button">Retour</Link>
     </div>
   );
 }
