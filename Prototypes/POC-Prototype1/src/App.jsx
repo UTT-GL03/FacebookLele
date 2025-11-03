@@ -1,27 +1,11 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link, useParams } from 'react-router-dom'
 import facebookLeleLogo from './assets/logoFacebooklele.svg'
+import postsData from './data/posts.json'
 import './App.css'
 
 function App() {
-  const [posts] = useState([
-  {
-    id: 1,
-    author: "Alice",
-    date: "2025-10-15",
-    title: "Mon premier post",
-    content: "Voici le contenu de mon premier post.",
-    image: null,
-  },
-  {
-    id: 2,
-    author: "Bob",
-    date: "2025-10-14",
-    title: "Deuxième post",
-    content: "Un autre post avec un peu plus de texte.",
-    image: null,
-  },
-]);
+  const [posts] = useState(postsData);
 
 
   return (

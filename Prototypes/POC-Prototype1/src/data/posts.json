@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "author": "Alice",
+    "date": "2025-10-15",
+    "title": "Mon premier post",
+    "content": "Voici le contenu de mon premier post.",
+    "image": null
+  },
+  {
+    "id": 2,
+    "author": "Bob",
+    "date": "2025-10-14",
+    "title": "Deuxième post",
+    "content": "Un autre post avec un peu plus de texte.",
+    "image": null
+  },
+  {
+    "id": 3,
+    "author": "Louis",
+    "date": "2025-11-14",
+    "title": "Euh oh je fais des crêpes",
+    "content": "Je teste mon fichier json",
+    "image": null
+  },
+  {
+    "id": 4,
+    "author": "Bob2",
+    "date": "2025-10-14",
+    "title": "Deuxième post",
+    "content": "Un autre post avec un peu plus de texte.",
+    "image": null
+  }
+]
