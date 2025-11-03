@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link, useParams } from 'react-router-dom'
 import facebookLeleLogo from './assets/logoFacebooklele.svg'
-import postsData from './data/posts.json'
+import postsData from './data/sample_data.json'
 import './App.css'
 
 function App() {
-  const [posts] = useState(postsData);
+  const [posts] = useState(postsData.posts);
 
 
   return (
@@ -59,7 +59,7 @@ function Post({ post }) {
         </div>
         <div className="post-content">
           <p>{post.content}</p>
-          {post.image && <img src={post.image} alt={post.title} className="post-image" />}
+          {/*{post.image && <img src={post.image} alt={post.title} className="post-image" />}*/}
         </div>
       </div>
     </Link>
@@ -81,7 +81,7 @@ function PostPage({ posts }) {
         Publié par {post.author} le {post.date}
       </p>
       <p>{post.content}</p>
-      {post.image && <img src={post.image} alt={post.title} />}
+      {/*{post.image && <img src={post.image} alt={post.title} />}*/}
       <Link to="/" className="back-button">Retour</Link>
     </div>
   );
