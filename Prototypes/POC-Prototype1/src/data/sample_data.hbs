@@ -1,0 +1,50 @@
+{{#repeat 1}}
+{
+  "posts": [
+    {{#repeat min=20 max=30}}
+    {
+      "author": "{{firstName}} {{lastName}}",
+      "date": "{{date '2024-10-07' '2025-10-08' 'YYYY-MM-DD hh:mm'}}",
+      "title": "{{random 'Les enfants m ont encore bien fait rire aujourd hui' 'Notre dimanche parfait en famille' 'Ce que j ai appris en devenant parent'
+      'Le secret pour une matinee sans stress'
+      'Mon plat reconfort prefere quand il pleut'
+      'Les petits bonheurs qu on oublie trop souvent'
+      'Comment on a transforme un simple repas en fou rire general'
+      'Les 3 choses que j essaie d enseigner a mes enfants'
+      'Ce moment ou tout le monde s est mis a danser dans le salon'
+      'Mon astuce pour une maison toujours vivante (et jamais parfaite)'
+      'Pourquoi je garde precieusement toutes leurs  oeuvres d ecole'
+      'Les traditions familiales qui me tiennent a c oeur'
+      'Un souvenir d enfance que je ne veux jamais oublier'
+      'Le genre de journee simple qui fait tout le bonheur du monde'
+      'Comment on a improvise une soiree magique sans rien planifier'
+      'Les petites choses qui rendent la vie plus douce'
+      'Ce que m a appris la patience (merci les enfants !)'
+      'Pourquoi j adore les dimanches sans agenda'
+      'Les fous rires de famille sont le meilleur anti-stress'
+      'Comment transformer un jour ordinaire en souvenir extraordinaire'
+      'Notre playlist du bonheur en famille'
+      'Les 5 petits gestes qui changent tout a la maison'
+      'Ce que je ressens quand je regarde mes enfants grandir'
+      'Les repas en famille : le vrai moment de partage'
+      'Mon rituel prefere avant le coucher'
+      'Les petits mots doux qu on se laisse le matin'
+      'Pourquoi j aime tant les soirees sans telephone'
+      'Les 3 choses qui rendent ma maison vraiment heureuse'
+      'Comment un calin peut tout arranger'}}",
+      "content": "{{lorem min=5 max=20}}",
+      "commentsSection": [
+        {{#repeat (random 1 5)}}
+          {
+            "authorscomments": "{{firstName}} {{lastName}}",
+            "comments": "{{lorem min=3 max=10}}"
+          }{{#unless @last}},{{/unless}}
+        {{/repeat}}
+        ]
+
+      }{{#unless @last}},{{/unless}}
+      {{/repeat}}
+      ]
+}
+{{/repeat}}
+
