@@ -272,4 +272,138 @@ Ce modèle se veut durable, équilibré et compatible avec une approche plus res
 Il permet de maintenir un service social en ligne sans exploitation des données ni recours à des infrastructures lourdes ou opaques.
 
 ---
+  
+## Maquette de l'interface et échantillon de données
+
+À partir des constats établis lors de l’analyse des réseaux sociaux existants et des principes de conception décrits précédemment (simplicité, accessibilité et faible impact environnemental), nous avons conçu une **maquette d’interface** épurée et intuitive.
+
+Cette première maquette a pour objectif de valider :
+- la **clarté de la navigation** entre les différents espaces du réseau (fil social, profil, publication) ;
+- la **lisibilité des contenus** sans surcharge visuelle ni éléments distrayants ;
+- et la **cohérence générale de l’expérience utilisateur** avec les valeurs du projet.
+
+### Structure de la maquette
+
+Les ressources représentées sur l’application sont réparties en deux types de pages principales :
+
+1. **Le fil social**  
+   URI : `/`  
+   Présente la liste chronologique des publications récentes, sous forme de messages courts accompagnés du nom de leur auteur et de la date de publication.
+
+2. **La page de publication**  
+   URI : `/post/{id}`  
+   Permet de consulter le contenu complet d’un message, sans éléments interactifs (commentaires, likes) pour cette première version.
+
+
+<img width="1859" height="1291" alt="unnamed" src="https://github.com/user-attachments/assets/ce0e2bd7-f26b-4eaf-8105-7a5465947992" />
+
+### Objectif de conception
+
+La maquette a été réalisée avec la volonté d’offrir une interface :
+- **simple** (aucune animation, navigation linéaire et claire),  
+- **sobre** (peu de couleurs, absence d’images de fond ou de médias lourds),  
+- **rapide à consulter**, même sur des appareils modestes ou des connexions limitées.
+
+Nous avons privilégié des **composants textuels** et des **contrastes nets**, afin de garantir une lecture fluide et accessible, tout en minimisant la charge graphique.  
+Les éléments d’interaction (boutons, liens, champs de texte) sont conçus pour être immédiatement identifiables et utilisables sans apprentissage préalable.
+
+
+---
+
+## Implémentation du scénario prioritaire
+
+### Premier prototypage : Données chargées de manière statique
+
+Pour cette première version du prototype (`v1.0.0`), le développement s’est concentré sur la validation du **scénario prioritaire** :  
+> *Consulter le fil social (scroller), consulter des posts.*
+
+À ce stade :
+
+- les données (profils, publications, commentaires) sont encore **chargées de manière statique** dans le code ;
+- seules les fonctionnalités essentielles à ce scénario ont été implémentées ;
+- l’objectif principal est de valider l’**architecture de navigation** et la **sobriété du rendu frontend**.
+
+Ce scénario nécessite de pouvoir naviguer entre deux types de pages :
+1. la **page d’accueil (fil social)** ;
+2. la **page de publication (détail d’un post)**.
+
+Dans l’état actuel du prototype, il est déjà possible d’obtenir une première estimation de l’impact environnemental du frontend.  
+Bien que le chargement dynamique des données ne soit pas encore implémenté, les tests effectués permettent d’évaluer la performance du rendu et l’empreinte énergétique des technologies utilisées (React, modules internes, gestion du style et des icônes).
+
+Les premiers résultats montrent une **différence significative entre le mode "développement" et le mode "pré-production"**.  
+Cette amélioration s’explique par l’application automatique de processus tels que la **minification du code**, la **concaténation des fichiers JavaScript et CSS**, et la **suppression des dépendances inutilisées** lors du build.  
+Ces optimisations réduisent sensiblement la taille finale des ressources téléchargées et donc la quantité de données transférées par page.
+
+À moyen terme, l’intégration d’un **framework CSS léger comme PicoCSS** pourrait encore renforcer cette démarche, en simplifiant la structure du style et en limitant les imports externes.  
+De même, une **optimisation ciblée de la taille des icônes** (sprites, SVG simplifiés ou chargement conditionnel) serait une étape supplémentaire pour abaisser l’impact global du frontend tout en maintenant une interface claire et fonctionnelle.
+
+
+| Mode | EcoIndex | GES (gCO₂e) | Taille du DOM | Requêtes | Taille de la page (ko) |
+|------|-----------|--------------|----------------|-----------|------------------------|
+| **Mode "développement"** | 77 B 🟩 | 1,46 | 212 | 17 | 1964 |
+| **Mode "pré-production"** | 92 A 🟦 | 1,1 | 204 | 3 | 85 |
+
+---
+
+### Page d’accueil (fil social)
+
+La page d’accueil (cf. Fig. 2) présente les publications de manière simple et hiérarchisée, en cohérence avec la maquette initiale.  
+Chaque message contient un identifiant d’utilisateur, un court texte et un indicateur temporel (date/heure).
+
+<img width="3050" height="1671" alt="unnamed" src="https://github.com/user-attachments/assets/bbdef349-fb6a-43b2-8a6c-2d59d7a00db9" />
+
+**Prototype de la page d’accueil — Fig.2 : Fil social.**
+
+Contrairement aux réseaux sociaux concurrents, **aucune image, vidéo ou script tiers** n’est chargé dans ce prototype.  
+Les publications sont purement textuelles afin de limiter la bande passante et d’évaluer le comportement du site dans un environnement à faible impact.
+
+Si des médias (images ou vidéos) devaient être intégrés ultérieurement, leur utilité devra être mise en balance avec leur **coût environnemental** et **leur influence sur la charge serveur**.  
+À titre de référence, chaque image ajoutée génère une requête HTTP supplémentaire et une hausse du poids total de la page, sauf recours à des optimisations spécifiques (sprites CSS, compression WebP, multiplexage HTTP/2, etc.).
+
+---
+
+### Page de publication
+
+Les publications sont accessibles via l’URI `/post/{id}`.  
+Elles affichent :
+- le contenu textuel du message,  
+- la date de publication,  
+- et le nom de l’auteur
+
+Aucune fonction interactive (like, commentaire, partage) n’est encore intégrée à cette version, afin de limiter la complexité et de rester concentré sur le **chargement des données et la navigation**.
+
+<img width="3067" height="1683" alt="unnamed-1" src="https://github.com/user-attachments/assets/05a2a5c7-040a-4a91-bf81-3ce6ac4d06ba" />
+
+**Prototype d'une page de post — Fig.3 : Posts.**
+
+
+#### Évaluation environnementale du scénario prioritaire
+
+| Étape du scénario | EcoIndex | GES (gCO₂e) | Taille du DOM | Requêtes | Taille (ko) |
+|-------------------|-----------|--------------|----------------|-----------|-------------|
+| 1. Charger le fil social | 77 B 🟩 | 1,46 | 212 | 17 | 1964 |
+| 2. Lire une première publication | 94 A 🟦 | 1,09 | 14 | 11 | 3 |
+| 3. Lire une seconde publication | 94 A 🟦 | 1,09 | 14 | 11 | 3 |
+| 4. Lire une troisième publication | 96 A 🟦 | 1,09 | 14 | 11 | 3 |
+
+**Tab. 2 : Évaluation de l’impact du scénario "Créer un compte, publier et lire des messages" sur le prototype v1.0.0.**
+
+Ces valeurs, bien qu’idéalisées (chargement statique, absence de base de données, hébergement local), sont **nettement inférieures** à celles observées sur les principaux réseaux sociaux commerciaux, où une page utilisateur dépasse fréquemment **3 à 5 gCO₂e**.
+
+En maintenant un objectif inférieur à **1,2 gCO₂e par page** dans le futur produit minimum viable (PMV), nous pourrions proposer une **alternative deux à trois fois moins impactante** que les services dominants — tout en garantissant une expérience fluide et respectueuse des données personnelles.
+
+---
+
+### Prochaines étapes
+
+Les prochaines versions viseront à :
+
+- intégrer un **chargement dynamique des données** depuis une API interne sobre (JSON léger, sans métadonnées superflues) ;  
+- ajouter les **fonctionnalités d’interaction** (commentaires, réactions) en limitant les requêtes ;  
+- étudier l’**impact réel du trafic réseau** une fois le service hébergé sur un serveur distant ;  
+- comparer la **performance environnementale** à des plateformes équivalentes via EcoIndex et Website Carbon.  
+
+L’objectif est de consolider une **architecture web légère**, durable, et en cohérence avec le modèle économique présenté précédemment.
+
+---
 
