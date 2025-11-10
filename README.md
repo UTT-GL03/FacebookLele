@@ -350,7 +350,7 @@ De même, une **optimisation ciblée de la taille des icônes** (sprites, SVG si
 La page d’accueil (cf. Fig. 2) présente les publications de manière simple et hiérarchisée, en cohérence avec la maquette initiale.  
 Chaque message contient un identifiant d’utilisateur, un court texte et un indicateur temporel (date/heure).
 
-<img width="3050" height="1671" alt="unnamed" src="https://github.com/user-attachments/assets/bbdef349-fb6a-43b2-8a6c-2d59d7a00db9" />
+<img width="1858" height="1266" alt="unnamed-1" src="https://github.com/user-attachments/assets/90f27b8b-3836-4b0c-a200-4b2af2b9008e" />
 
 **Prototype de la page d’accueil — Fig.2 : Fil social.**
 
@@ -372,7 +372,7 @@ Elles affichent :
 
 Aucune fonction interactive (like, commentaire, partage) n’est encore intégrée à cette version, afin de limiter la complexité et de rester concentré sur le **chargement des données et la navigation**.
 
-<img width="3067" height="1683" alt="unnamed-1" src="https://github.com/user-attachments/assets/05a2a5c7-040a-4a91-bf81-3ce6ac4d06ba" />
+<img width="1850" height="1271" alt="unnamed-1" src="https://github.com/user-attachments/assets/ebb6680d-7f6f-4d13-9656-385b070f8f3b" />
 
 **Prototype d'une page de post — Fig.3 : Posts.**
 
@@ -391,6 +391,14 @@ Aucune fonction interactive (like, commentaire, partage) n’est encore intégr�
 Ces valeurs, bien qu’idéalisées (chargement statique, absence de base de données, hébergement local), sont **nettement inférieures** à celles observées sur les principaux réseaux sociaux commerciaux, où une page utilisateur dépasse fréquemment **3 à 5 gCO₂e**.
 
 En maintenant un objectif inférieur à **1,2 gCO₂e par page** dans le futur produit minimum viable (PMV), nous pourrions proposer une **alternative deux à trois fois moins impactante** que les services dominants — tout en garantissant une expérience fluide et respectueuse des données personnelles.
+
+### Étape de prototypage : Chargement dynamique des données statiques
+
+Dans cette nouvelle version du prototype (`v1.0.1`), les données ne sont plus intégrées directement dans le code source mais désormais chargées dynamiquement par le frontend après un premier rendu de la page.  
+Ce fonctionnement reflète davantage le comportement d’une application web moderne, où le contenu est récupéré via le réseau après le chargement initial de l’interface.
+
+Sur le plan fonctionnel, les fonctionnalités principales du prototype demeurent inchangées par rapport à la version précédente.  
+Par conséquent, l’impact environnemental global des scénarios d’utilisation reste stable sur cette version (`v1.0.1`), les différences se situant principalement au niveau de l’architecture du chargement des données plutôt que du contenu.
 
 ---
 
