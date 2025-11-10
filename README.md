@@ -295,7 +295,7 @@ Les ressources représentées sur l’application sont réparties en deux types 
    Permet de consulter le contenu complet d’un message, sans éléments interactifs (commentaires, likes) pour cette première version.
 
 
-<img width="1859" height="1291" alt="unnamed" src="https://github.com/user-attachments/assets/ce0e2bd7-f26b-4eaf-8105-7a5465947992" />
+<img src="readme-images/homepage.png">   
 
 ### Objectif de conception
 
@@ -350,7 +350,7 @@ De même, une **optimisation ciblée de la taille des icônes** (sprites, SVG si
 La page d’accueil (cf. Fig. 2) présente les publications de manière simple et hiérarchisée, en cohérence avec la maquette initiale.  
 Chaque message contient un identifiant d’utilisateur, un court texte et un indicateur temporel (date/heure).
 
-<img width="1858" height="1266" alt="unnamed-1" src="https://github.com/user-attachments/assets/90f27b8b-3836-4b0c-a200-4b2af2b9008e" />
+<img src="readme-images/homepage.png">   
 
 **Prototype de la page d’accueil — Fig.2 : Fil social.**
 
@@ -372,7 +372,7 @@ Elles affichent :
 
 Aucune fonction interactive (like, commentaire, partage) n’est encore intégrée à cette version, afin de limiter la complexité et de rester concentré sur le **chargement des données et la navigation**.
 
-<img width="1850" height="1271" alt="unnamed-1" src="https://github.com/user-attachments/assets/ebb6680d-7f6f-4d13-9656-385b070f8f3b" />
+<img src="readme-images/postpage.png">   
 
 **Prototype d'une page de post — Fig.3 : Posts.**
 
