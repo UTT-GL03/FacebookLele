@@ -17,7 +17,7 @@ function PostPage({ posts }) {
       <p>{post.content}</p>
       {/* {post.image && <img src={post.image} alt={post.title} />} */}
       <p>{post.comment}</p>
-      <Link to="/" className="back-button">RetourPP</Link>
+      <Link to="/" className="back-button">Retour</Link>
     </div>
   )
 }
