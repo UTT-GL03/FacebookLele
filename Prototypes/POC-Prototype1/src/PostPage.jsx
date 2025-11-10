@@ -1,11 +1,24 @@
+import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
-function PostPage({ posts }) {
-  const { id } = useParams();
-  const post = posts.find((p) => p.id === Number(id));
+function PostPage() {
+  const { id } = useParams()
+  const [post, setPost] = useState(null)
+
+  useEffect(() => {
+    fetch('/sample_data.json')
+      .then(response => response.json())
+      .then(data => {
+        const foundPost = data.posts.find((p) => p.id === Number(id))
+        setPost(foundPost)
+      })
+      .catch(error => {
+        console.error('Erreur lors du chargement des données:', error)
+      })
+  }, [id])
 
   if (!post) {
-    return <p>Post introuvable</p>;
+    return <p>Chargement...</p>
   }
 
   return (
@@ -15,8 +28,8 @@ function PostPage({ posts }) {
         Publié par {post.author} le {post.date}
       </p>
       <p>{post.content}</p>
-      {/* {post.image && <img src={post.image} alt={post.title} />} */}
-      <p>{post.comment}</p>
+      {post.image && <img src={post.image} alt={post.title} />}
+      {post.comment && <p>{post.comment}</p>}
       <Link to="/" className="back-button">Retour</Link>
     </div>
   )
