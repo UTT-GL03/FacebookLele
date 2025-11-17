@@ -23,6 +23,7 @@ jobs:
           npm run build
       - name: Start frontend
         run: |
+          cd Prototypes/POC-Prototype1
           docker compose up --detach
       - name: Wait for frontend
         uses: docker://benel/wait-for-response:1
