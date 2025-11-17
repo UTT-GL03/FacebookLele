@@ -15,9 +15,11 @@ jobs:
           cache-dependency-path: ./package-lock.json
       - name: Install frontend dependencies
         run: |
+          cd Prototypes\POC-Prototype1
           npm install
       - name: Build frontend
         run: |
+          cd Prototypes\POC-Prototype1
           npm run build
       - name: Start frontend
         run: |
