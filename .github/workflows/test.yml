@@ -21,7 +21,7 @@ jobs:
         run: |
           cd Prototypes/POC-Prototype1
           mkdir frontend/public
-          npx --yes dummy-json src/data/sample_data.hbs > frontend/public/sample_data.json
+          npx --yes dummy-json src/data/sample_data.hbs > public/sample_data.json
       - name: Build frontend
         run: |
           cd Prototypes/POC-Prototype1
