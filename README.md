@@ -400,6 +400,41 @@ Ce fonctionnement reflète davantage le comportement d’une application web mod
 Sur le plan fonctionnel, les fonctionnalités principales du prototype demeurent inchangées par rapport à la version précédente.  
 Par conséquent, l’impact environnemental global des scénarios d’utilisation reste stable sur cette version (`v1.0.1`), les différences se situant principalement au niveau de l’architecture du chargement des données plutôt que du contenu.
 
+## Impacts et sources de consommation lors du passage à l’échelle
+
+Avec un prototype désormais représentatif du fonctionnement réel d’une application web, il devient possible d’anticiper les effets du **passage à l’échelle**.  
+Dans le cas d’un réseau social, l’augmentation de la charge ne provient pas seulement du nombre d’utilisateurs mais également du **volume croissant de contenus générés**, même dans un environnement volontairement minimaliste.
+
+### Sources principales d’augmentation de la charge
+
+Contrairement à un site classique, la croissance des données ne dépend pas d’une équipe éditoriale fixe mais des interactions entre utilisateurs :  
+- publications textuelles,  
+- fils de discussion,  
+- réactions et interactions,  
+- éléments graphiques légers (icônes, avatars),  
+- stockage des relations sociales (abonnements, suivis, contacts).  
+
+Même si la plateforme se veut sobre, pas de vidéos, pas d’images lourdes, pas d’algorithmes complexes, certaines dynamiques sont inévitables :
+
+1. **Croissance linéaire du contenu** :  
+   chaque utilisateur contribue régulièrement, ce qui entraîne une augmentation constante de la taille de la base de données.
+
+2. **Augmentation du nombre de requêtes** :  
+   plus il y a d’utilisateurs simultanés, plus les interactions (consultation des fils, publications, chargement des profils, etc.) se multiplient.
+
+3. **Stockage des relations sociales** :  
+   les graphes d’amitiés/abonnements s’étendent plus vite que le nombre d’utilisateurs, même si chaque relation est légère en termes de données.
+
+### Projection de croissance
+
+Le volume de données évolue de manière quasi linéaire :  
+
+- Supposons une activité moyenne de **5 publications par utilisateur et par semaine**.  
+- Avec **1 000 utilisateurs actifs**, cela représente **20 000 publications par mois**.  
+- Au bout d’un an, la base contiendrait **plus de 200 000 publications textuelles**, sans compter les réactions et discussions associées.
+
+Même si chaque message est léger (texte seul, quelques dizaines d’octets à quelques kilooctets), le **volume cumulé** devient significatif à long terme.
+
 ---
 
 ### Prochaines étapes
