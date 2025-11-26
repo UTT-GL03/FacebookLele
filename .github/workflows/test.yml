@@ -20,7 +20,7 @@ jobs:
       - name: Generate sample
         run: |
           cd Prototypes/POC-Prototype1
-          mkdir frontend/public
+          mkdir public
           npx --yes dummy-json src/data/sample_data.hbs > public/sample_data.json
       - name: Build frontend
         run: |
