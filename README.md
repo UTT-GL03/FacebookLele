@@ -407,14 +407,14 @@ Dans le cas d’un réseau social, l’augmentation de la charge ne provient pas
 
 ### Sources principales d’augmentation de la charge
 
-Contrairement à un site classique, la croissance des données ne dépend pas d’une équipe éditoriale fixe mais des interactions entre utilisateurs :  
+Contrairement à un site classique, la croissance des données ne dépend pas d’une équipe éditoriale fixe mais des interactions entre utilisateurs:  
 - publications textuelles,  
 - fils de discussion,  
 - réactions et interactions,  
 - éléments graphiques légers (icônes, avatars),  
 - stockage des relations sociales (abonnements, suivis, contacts).  
 
-Même si la plateforme se veut sobre, pas de vidéos, pas d’images lourdes, pas d’algorithmes complexes, certaines dynamiques sont inévitables :
+Même si la plateforme se veut sobre, pas de vidéos, pas d’images lourdes, pas d’algorithmes complexes, certaines dynamiques sont inévitables:
 
 1. **Croissance linéaire du contenu** :  
    chaque utilisateur contribue régulièrement, ce qui entraîne une augmentation constante de la taille de la base de données.
@@ -427,13 +427,47 @@ Même si la plateforme se veut sobre, pas de vidéos, pas d’images lourdes, pa
 
 ### Projection de croissance
 
-Le volume de données évolue de manière quasi linéaire :  
+Le volume de données évolue de manière quasi linéaire:   
 
 - Supposons une activité moyenne de **5 publications par utilisateur et par semaine**.  
 - Avec **1 000 utilisateurs actifs**, cela représente **20 000 publications par mois**.  
 - Au bout d’un an, la base contiendrait **plus de 200 000 publications textuelles**, sans compter les réactions et discussions associées.
 
 Même si chaque message est léger (texte seul, quelques dizaines d’octets à quelques kilooctets), le **volume cumulé** devient significatif à long terme.
+
+## Évolution de l’EcoIndex lors du passage à l’échelle
+
+Les mesures d’impact environnemental sont désormais exécutées automatiquement lors de l’intégration continue.  
+En comparant les résultats obtenus avant et après la simulation de montée en charge, on observe une **augmentation nette du poids de la page du fil social** ainsi que du **nombre d’éléments affichés**, tandis que les pages individuelles de publications n'évoluent pas du tout.
+
+Cette évolution est conforme aux attentes : lors de la mise à l’échelle d’un réseau social, le fil d’actualité concentre l’essentiel de la croissance (multiplcation des messages, interactions et blocs d’interface), contrairement aux pages de contenu individuel.
+
+### Résultats : avant vs passage à l’échelle
+
+| Étape du scénario                        | EcoIndex Dev → Échelle | GES (gCO₂e) Dev → Échelle | Taille du DOM Dev → Échelle | Requêtes | Taille (ko) Dev → Échelle |
+|------------------------------------------|-------------------------|----------------------------|------------------------------|----------|-----------------------------|
+| 1. Charger le fil social                 | 77 B 🟩 → 29 E 🟥       | 1,46 → 2,40                | 212 → 19 014                 | 17        | 1964 → 11 400              |
+| 2. Lire une première publication         | 94 A 🟦 → 94 A 🟦       | 1,09 → 1,09                | 14 → 14                   | 11        | 3 → 3                 |
+| 3. Lire une seconde publication          | 94 A 🟦 → 94 A 🟦       | 1,09 → 1,09                | 14 → 14                   | 11        | 3 → 3                 |
+| 4. Lire une troisième publication        | 96 A 🟦 → 96 A 🟦       | 1,09 → 1,09                | 14 → 14                   | 11        | 3 → 3                 |
+
+  
+On constate une **dégradation beaucoup plus importante de l’EcoIndex pour la page du fil social** que pour les pages de publications.  
+Cela s’explique par la nature du calcul de l’EcoIndex, qui prend en compte :
+
+- la taille totale des données transférées
+- le nombre de requêtes
+- le nombre d’éléments du DOM
+
+Le fil social est, par conception, la page la plus sensible à l’augmentation du contenu.  
+Même dans une approche volontairement sobre texte uniquement, interface minimaliste, la simple accumulation des messages suffit à :
+
+- augmenter la taille du DOM
+- accroître les besoins en mémoire du navigateur
+- multiplier le volume réseau
+
+Les pages de publications individuelles, quant à elles, restent relativement légères, même après mise à l’échelle, car elles n’affichent qu’un nombre limité d’éléments.
+
 
 ---
 
