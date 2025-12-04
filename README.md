@@ -446,10 +446,11 @@ Cette évolution est conforme aux attentes : lors de la mise à l’échelle d�
 
 | Étape du scénario                        | EcoIndex Dev → Échelle | GES (gCO₂e) Dev → Échelle | Taille du DOM Dev → Échelle | Requêtes | Taille (ko) Dev → Échelle |
 |------------------------------------------|-------------------------|----------------------------|------------------------------|----------|-----------------------------|
-| 1. Charger le fil social                 | 77 B 🟩 → 29 E 🟥       | 1,46 → 2,40                | 212 → 19 014                 | 17        | 1964 → 11 400              |
-| 2. Lire une première publication         | 94 A 🟦 → 94 A 🟦       | 1,09 → 1,09                | 14 → 14                   | 11        | 3 → 3                 |
-| 3. Lire une seconde publication          | 94 A 🟦 → 94 A 🟦       | 1,09 → 1,09                | 14 → 14                   | 11        | 3 → 3                 |
-| 4. Lire une troisième publication        | 96 A 🟦 → 96 A 🟦       | 1,09 → 1,09                | 14 → 14                   | 11        | 3 → 3                 |
+| 1. Charger le fil social                 | 81 A 🟦 → 29 E 🟥       | 1,38 → 2,40                | 220 → 19 014                 | 9        | 500 → 11 400              |
+| 2. Lire une première publication         | 92 A 🟦 → 94 A 🟦       | 1,16 → 1,09                | 22 → 14                      | 2        | 39 → 3                 |
+| 3. Retourner au fil social et le charger | 84 A 🟦 → 29 E 🟥       | 1,16 → 2,40                | 220 → 19 014                 | 2        | 39 → 11 400              |
+| 4. Lire une seconde publication          | 92 A 🟦 → 94 A 🟦       | 1,16 → 1,09                | 22 → 14                      | 1        | 18 → 3                 |
+| 5. Retourner au fil social et le charger | 85 A 🟦 → 29 E 🟥       | 1,30 → 2,40                | 220 → 19 014                 | 0        | 0 → 11 400              |
 
   
 On constate une **dégradation beaucoup plus importante de l’EcoIndex pour la page du fil social** que pour les pages de publications.  
