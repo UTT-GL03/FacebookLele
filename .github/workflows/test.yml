@@ -17,7 +17,6 @@ jobs:
           --health-interval=5s
           --health-timeout=3s
           --health-retries=10
-
     steps:
       - name: Download sources
         uses: actions/checkout@v5
@@ -54,7 +53,6 @@ jobs:
       #  uses: docker://benel/wait-for-response:1
       #  with:
       #    args: http://localhost/ 200 30000 500
-
       #rajouté séance 8
       - name: Wait for frontend
         run: |
@@ -68,7 +66,6 @@ jobs:
           done
           echo "Frontend failed to start"
           exit 1
-
       - name: Run GreenIT Analysis CLI
         run: |
           cd Prototypes/POC-Prototype1
