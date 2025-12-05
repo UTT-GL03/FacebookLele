@@ -2,9 +2,7 @@ services:
   static_hosting:
     image: nginx
     volumes:
-    #  - ./dist:/usr/share/nginx/html:ro
-    #  - ./settings/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-     - ${PWD}/dist:/usr/share/nginx/html:ro
-     - ${PWD}/settings/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./dist:/usr/share/nginx/html:ro
+      - ./settings/nginx.conf:/etc/nginx/conf.d/default.conf:ro
     ports:
       - 80:80
