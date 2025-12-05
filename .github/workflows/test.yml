@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: Prototypes/POC-Prototype1/package-lock.json
+          cache-dependency-path: ./package-lock.json
       - name: Install frontend dependencies
         run: |
           cd Prototypes/POC-Prototype1
@@ -20,7 +20,6 @@ jobs:
       - name: Generate sample
         run: |
           cd Prototypes/POC-Prototype1
-          mkdir -p public
           npx --yes dummy-json src/data/sample_data.hbs > public/sample_data.json
       - name: Build frontend
         run: |
@@ -49,4 +48,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: EcoIndex
-          path: Prototypes/POC-Prototype1/scroll_post_feed.html
+          path: resultats_test_yml.html
