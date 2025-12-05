@@ -12,7 +12,7 @@ jobs:
           - 80:80
         volumes:
           - ./Prototypes/POC-Prototype1/dist:/usr/share/nginx/html:ro
-        options: >
+        options: >-
           --health-cmd="curl -f http://localhost || exit 1"
           --health-interval=5s
           --health-timeout=3s
