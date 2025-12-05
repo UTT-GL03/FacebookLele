@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: ./package-lock.json
+          cache-dependency-path: Prototypes/POC-Prototype1/package-lock.json
       - name: Install frontend dependencies
         run: |
           cd Prototypes/POC-Prototype1
@@ -20,21 +20,16 @@ jobs:
       - name: Generate sample
         run: |
           cd Prototypes/POC-Prototype1
+          mkdir -p public
           npx --yes dummy-json src/data/sample_data.hbs > public/sample_data.json
       - name: Build frontend
         run: |
           cd Prototypes/POC-Prototype1
           npm run build
-      - name: Install Docker Compose
-        run: |
-          sudo apt-get update
-          sudo apt-get install docker.io docker-compose-v2 -y
-          docker --version
-          docker compose version
       - name: Start frontend
         run: |
           cd Prototypes/POC-Prototype1
-          docker compose -f $GITHUB_WORKSPACE/Prototypes/POC-Prototype1/docker-compose.yml up --detach
+          docker compose up --detach
       - name: Install GreenIT Analysis CLI
         run: |
           wget https://github.com/cnumr/GreenIT-Analysis-cli/archive/refs/heads/master.zip
@@ -54,4 +49,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: EcoIndex
-          path: scroll_post_feed.html
+          path: Prototypes/POC-Prototype1/scroll_post_feed.html
