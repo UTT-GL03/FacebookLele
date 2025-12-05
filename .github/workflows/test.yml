@@ -4,19 +4,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    #Service rajouté séance 8
-    services:
-      nginx:
-        image: nginx:latest
-        ports:
-          - 80:80
-        volumes:
-          - ./Prototypes/POC-Prototype1/dist:/usr/share/nginx/html:ro
-        options: >-
-          --health-cmd="curl -f http://localhost || exit 1"
-          --health-interval=5s
-          --health-timeout=3s
-          --health-retries=10
     steps:
       - name: Download sources
         uses: actions/checkout@v5
@@ -38,10 +25,16 @@ jobs:
         run: |
           cd Prototypes/POC-Prototype1
           npm run build
-      #- name: Start frontend
-      #  run: |
-      #    cd Prototypes/POC-Prototype1
-      #    docker compose up --detach
+      - name: Install Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install docker.io docker-compose-v2 -y
+          docker --version
+          docker compose version
+      - name: Start frontend
+        run: |
+          cd Prototypes/POC-Prototype1
+          docker compose -f $GITHUB_WORKSPACE/Prototypes/POC-Prototype1/docker-compose.yml up --detach
       - name: Install GreenIT Analysis CLI
         run: |
           wget https://github.com/cnumr/GreenIT-Analysis-cli/archive/refs/heads/master.zip
@@ -49,23 +42,10 @@ jobs:
           cd GreenIT-Analysis-cli-master
           npm install
           npm link
-      #- name: Wait for frontend
-      #  uses: docker://benel/wait-for-response:1
-      #  with:
-      #    args: http://localhost/ 200 30000 500
-      #rajouté séance 8
       - name: Wait for frontend
-        run: |
-          for i in {1..30}; do
-            if curl -s http://localhost >/dev/null; then
-              echo "Frontend is up!"
-              exit 0
-            fi
-            echo "Waiting for frontend..."
-            sleep 1
-          done
-          echo "Frontend failed to start"
-          exit 1
+        uses: docker://benel/wait-for-response:1
+        with:
+          args: http://localhost/ 200 30000 500
       - name: Run GreenIT Analysis CLI
         run: |
           cd Prototypes/POC-Prototype1
@@ -74,4 +54,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: EcoIndex
-          path: resultats_test_yml.html
+          path: scroll_post_feed.html
