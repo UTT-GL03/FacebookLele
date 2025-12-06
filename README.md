@@ -446,11 +446,11 @@ Cette évolution est conforme aux attentes : lors de la mise à l’échelle d�
 
 | Étape du scénario                        | EcoIndex Dev → Échelle | GES (gCO₂e) Dev → Échelle | Taille du DOM Dev → Échelle | Requêtes | Taille (ko) Dev → Échelle |
 |------------------------------------------|-------------------------|----------------------------|------------------------------|----------|-----------------------------|
-| 1. Charger le fil social                 | 81 A 🟦 → 29 E 🟥       | 1,38 → 2,40                | 220 → 19 014                 | 9        | 500 → 11 400              |
-| 2. Lire une première publication         | 92 A 🟦 → 94 A 🟦       | 1,16 → 1,09                | 22 → 14                      | 2        | 39 → 3                 |
-| 3. Retourner au fil social et le charger | 84 A 🟦 → 29 E 🟥       | 1,16 → 2,40                | 220 → 19 014                 | 2        | 39 → 11 400              |
-| 4. Lire une seconde publication          | 92 A 🟦 → 94 A 🟦       | 1,16 → 1,09                | 22 → 14                      | 1        | 18 → 3                 |
-| 5. Retourner au fil social et le charger | 85 A 🟦 → 29 E 🟥       | 1,30 → 2,40                | 220 → 19 014                 | 0        | 0 → 11 400              |
+| 1. Charger le fil social                 | 81 A 🟦 → 33 E 🟥       | 1,38 → 2,12                | 220 → 21 017                 | 9        | 500 → 2518               |
+| 2. Lire une première publication         | 92 A 🟦 → 82 A 🟦       | 1,16 → 1,36                | 22 → 22                      | 1        | 39 → 2272                 |
+| 3. Retourner au fil social et le charger | 84 A 🟦 → 35 E 🟥       | 1,16 → 2,30                | 220 → 21 017                 | 1        | 39 → 2272              |
+| 4. Lire une seconde publication          | 92 A 🟦 → 82 A 🟦       | 1,16 → 1,36                | 22 → 22                      | 1        | 18 → 2272                 |
+| 5. Retourner au fil social et le charger | 85 A 🟦 → 47 D 🟨       | 1,30 → 2,06                | 220 → 21 017                 | 0        | 0 → 0              |
 
   
 On constate une **dégradation beaucoup plus importante de l’EcoIndex pour la page du fil social** que pour les pages de publications.  
