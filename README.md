@@ -472,16 +472,66 @@ Les pages de publications individuelles, quant à elles, restent relativement l�
 
 ---
 
-### Prochaines étapes
+## Mesure de la consommation énergétique liée à la consultation
 
-Les prochaines versions viseront à :
+Pour compléter l’analyse issue de l’EcoIndex, nous avons évalué la consommation énergétique des différents composants impliqués dans la consultation du fil social et la lecture de publications à l’aide du logiciel **GreenFrame IT**.
 
-- intégrer un **chargement dynamique des données** depuis une API interne sobre (JSON léger, sans métadonnées superflues) ;  
-- ajouter les **fonctionnalités d’interaction** (commentaires, réactions) en limitant les requêtes ;  
-- étudier l’**impact réel du trafic réseau** une fois le service hébergé sur un serveur distant ;  
-- comparer la **performance environnementale** à des plateformes équivalentes via EcoIndex et Website Carbon.  
+GreenFrame estime la consommation :
 
-L’objectif est de consolider une **architecture web légère**, durable, et en cohérence avec le modèle économique présenté précédemment.
+* du **CPU** (à partir du temps de calcul) ;
+* de la **mémoire vive** (à partir de la taille des données utilisées en RAM) ;
+* du **disque** (à partir des lectures/écritures) ;
+* du **réseau** (à partir de la taille des données échangées) ;
+* et uniquement côté navigateur (client), de **l’écran** (à partir du temps total d’exécution du scénario).
+
+Les tableaux ci-dessous présentent les résultats estimés pour :
+
+1. **(a)** le chargement et la consultation du fil social (scénario 1),
+2. **(b)** la lecture d’une publication (scénarios 2 à 4, identiques en termes de fonctionnement et de charge).
+
+### (a) Consultation du fil social
+
+|             | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
+| ----------- | -------- | -------- | --------- | ------------ | ----------- | ---------- |
+| Navigateur  | 0.0028   | 0.000060 | 0.0       | **0.061**    | **0.070**   | 0.13       |
+| Serveur Web | 0.000060 | 0.000021 | 0.0       | **0.062**    | 0.0         | 0.062      |
+
+### (b) Lecture d’une publication
+
+|             | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
+| ----------- | -------- | -------- | --------- | ------------ | ----------- | ---------- |
+| Navigateur  | 0.0036   | 0.000066 | 0.0       | **0.061**    | **0.072**   | 0.14       |
+| Serveur Web | 0.000075 | 0.000022 | 0.0       | **0.062**    | 0.0         | 0.064      |
+
+**Tab.7 : Estimation de la consommation énergétique de la consultation du fil social (a) et de la lecture d’une publication (b).**
+
+---
+
+## Analyse : un impact très proche entre fil social et publication
+
+Contrairement à ce que pouvait laisser penser l’EcoIndex qui pénalise fortement la taille du DOM dans le cas du fil social, les mesures GreenFrame montrent que :
+
+**La consommation énergétique totale du chargement du fil social est quasiment équivalente à celle d’une publication individuelle.**
+
+Autrement dit, même si le fil social contient bien plus d’éléments visibles, son coût énergétique **n’est pas dû à leur affichage**, mais essentiellement à **la quantité de données échangées sur le réseau**.
+
+Ce constat rejoint ce que l’on observe souvent dans les architectures web modernes :
+**le rendu d’éléments simples côté navigateur ne représente presque rien par rapport au coût du transfert réseau.**
+
+---
+
+## Le rôle déterminant du temps d’affichage
+
+Si l’impact direct du volume de données affichées reste limité, l’affichage de ces contenus a un **impact indirect majeur** :
+**plus le contenu est long à consulter, plus le temps d’éclairage de l’écran augmente**, et l’écran constitue l’un des postes les plus énergivores côté client.
+
+Ainsi, les trois contributeurs principaux, dans des proportions similaires, sont :
+
+* **l’écran du client**,
+* **le réseau côté client**,
+* **le réseau côté serveur**.
+
+Les autres postes (CPU, RAM, disque) sont, dans ce contexte, **marginaux**.
 
 ---
 
