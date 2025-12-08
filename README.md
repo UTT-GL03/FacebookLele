@@ -493,15 +493,15 @@ Les tableaux ci-dessous présentent les résultats estimés pour :
 
 |             | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
 | ----------- | -------- | -------- | --------- | ------------ | ----------- | ---------- |
-| Navigateur  | 0.0028   | 0.000060 | 0.0       | **0.061**    | **0.070**   | 0.13       |
-| Serveur Web | 0.000060 | 0.000021 | 0.0       | **0.062**    | 0.0         | 0.062      |
+| Navigateur  | 0.0045   | 0.00014    | 0.0     | 0.014        | 0.099       | 0.12       |
+| Serveur Web | 0.0000078 | 0.0000041 | 0.0     | 0.014        | 0.0         | 0.014      |
 
 ### (b) Lecture d’une publication
 
 |             | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
 | ----------- | -------- | -------- | --------- | ------------ | ----------- | ---------- |
-| Navigateur  | 0.0036   | 0.000066 | 0.0       | **0.061**    | **0.072**   | 0.14       |
-| Serveur Web | 0.000075 | 0.000022 | 0.0       | **0.062**    | 0.0         | 0.064      |
+| Navigateur  | 0.00083   | 0.000049  | 0.0     | 0.014        | 0.067       | 0.082      |
+| Serveur Web | 0.0000087 | 0.0000028 | 0.0     | 0.014        | 0.0         | 0.014      |
 
 **Tab.7 : Estimation de la consommation énergétique de la consultation du fil social (a) et de la lecture d’une publication (b).**
 
