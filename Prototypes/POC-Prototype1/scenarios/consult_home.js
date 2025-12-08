@@ -1,5 +1,5 @@
-/*const visit = async (page) => {
-  await page.goto('', {
+const visit = async (page) => {
+  await page.goto('/', {
     waitUntil: 'networkidle',
   });
   await page.waitForTimeout(10000);
@@ -9,8 +9,8 @@
 };
 
 module.exports = visit;
-*/
 
+/*
 module.exports = async function (page) {
   await page.goto('http://host.docker.internal/', {
     waitUntil: 'networkidle',
@@ -34,3 +34,4 @@ module.exports = async function (page) {
   await page.waitForNetworkIdle();
   await page.waitForTimeout(2000);
 };
+*/
