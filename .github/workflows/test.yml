@@ -81,4 +81,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Consumption
-          path: Consumption.txt
+          path: Prototypes/POC-Prototype1/Consumption.txt

@@ -1,4 +1,4 @@
-baseURL: http://host.docker.internal
+baseURL: http://localhost
 projectName: FacebookLele
 scenarios:
   - name: Consulter un post
