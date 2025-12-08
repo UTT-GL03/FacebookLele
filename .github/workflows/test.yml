@@ -76,7 +76,7 @@ jobs:
       - name: Run GreenFrame CLI
         run: |
           cd Prototypes/POC-Prototype1
-          ./greenframe-cli-post-app/bin/run analyze --config ./.greenframe.yml > Consumption.txt
+          ./greenframe-cli-post-app/bin/run analyze --configFile ./greenframe.yml > Consumption.txt
       - name: Save results
         uses: actions/upload-artifact@v4
         with:
