@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: ./package-lock.json
+          cache-dependency-path: Prototypes/POC-Prototype1/package-lock.json
       - name: Install frontend dependencies
         run: |
           cd Prototypes/POC-Prototype1
@@ -25,10 +25,19 @@ jobs:
         run: |
           cd Prototypes/POC-Prototype1
           npm run build
-      - name: Start frontend
-        run: |
-          cd Prototypes/POC-Prototype1
-          docker compose up --detach
+      - name: Save frontend build for later
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build
+          path: Prototypes/POC-Prototype1/dist
+  measure_ecoindex:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download sources
+        uses: actions/checkout@v5
+      - name: Start application
+        uses: ./.github/actions/start
       - name: Install GreenIT Analysis CLI
         run: |
           wget https://github.com/cnumr/GreenIT-Analysis-cli/archive/refs/heads/master.zip
@@ -36,10 +45,6 @@ jobs:
           cd GreenIT-Analysis-cli-master
           npm install
           npm link
-      - name: Wait for frontend
-        uses: docker://benel/wait-for-response:1
-        with:
-          args: http://localhost/ 200 30000 500
       - name: Run GreenIT Analysis CLI
         run: |
           cd Prototypes/POC-Prototype1
@@ -48,4 +53,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: EcoIndex
-          path: resultats_test_yml.html
+          path: Prototypes/POC-Prototype1/resultats_test_yml.html
+          #path: Prototypes/POC-Prototype1/*.html

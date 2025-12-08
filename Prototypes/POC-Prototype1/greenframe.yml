@@ -1,0 +1,7 @@
+baseURL: http://host.docker.internal
+projectName: FacebookLele
+scenarios:
+  - name: Consulter un post
+    path: ./scenarios/consult_post.js
+containers:
+  - poc-prototype1-static_hosting-1

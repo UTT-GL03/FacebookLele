@@ -1,0 +1,8 @@
+scenario: '../src/examples/greenframe.js'
+baseURL: 'https://greenframe.io'
+samples: 2
+projectName: 'GreenFrame'
+kubeContainers:
+    - 'default:app=api'
+kubeDatabaseContainers:
+    - 'default:app=db'
