@@ -550,8 +550,8 @@ Cette évolution modifie grandement le fonctionnement interne :
 
 |                 | cpu (s)                                   | screen (s) | mem (B)                                   | disk (B) | network (B)                               |
 | --------------- | ----------------------------------------- | ---------- | ----------------------------------------- | -------- | ----------------------------------------- |
-| Navigateur      | <del>0.132</del><br/><add>0.074</add>     | 17.6       | <del>1.52e+8</del><br/><add>1.23e+8</add> | 0.00     | <del>1.18e+7</del><br/><add>3.70e+5</add> |
-| Serveur Web     | <del>0.00083</del><br/><add>0.00021</add> | 0.00       | 5.40e+6                                   | 0.00     | <del>1.18e+7</del><br/><add>3.68e+5</add> |
+| Navigateur      | <del>0.0666</del><br/><add>NEW</add>     | 17.3       | <del>1.31e+8</del><br/><add>NEW</add>      | 0.00     | <del>2.67e+6</del><br/><add>NEW</add> |
+| Serveur Web     | <del>0.000495</del><br/><add>NEW</add>   | 0.00       | <del>5.56e+6</del><br/><add>NEW</add>      | 0.00     | <del>2.67e+6</del><br/><add>NEW</add> |
 | Base de données | <del>0</del><br/><add>0.034</add>         | 0.00       | <del>0</del><br/><add>1.26e+8</add>       | 0.00     | <del>0</del><br/><add>1.75e+3</add>       |
 
 **Tab.8 : Effet de l’introduction d’une base de données lors de la consultation d’une publication.**
@@ -575,16 +575,16 @@ En résumé :
 
 |                 | cpu (Wh)                          | mem (Wh)                          | disk (Wh) | network (Wh)                | screen (Wh) | total (Wh)                  |
 | --------------- | --------------------------------- | --------------------------------- | --------- | --------------------------- | ----------- | --------------------------- |
-| Navigateur      | 0.0027                            | 0.000058                          | 0.0       | 0.062                       | 0.069       | 0.13                        |
-| Serveur Web     | <del>0.000061</del><br/>0.0000042 | <del>0.000020</del><br/>0.0000028 | 0.0       | <del>0.063</del><br/>0.0019 | 0.0         | <del>0.063</del><br/>0.0019 |
+| Navigateur      | 0.0045                            | 0.00014                           | 0.0       | 0.014                       | 0.099       | 0.12                        |
+| Serveur Web     | <del>0.0000078</del><br/NEW       | <del>0.0000041</del><br/>NEW      | 0.0       | <del>0.014</del><br/>NEW    | 0.0         | <del>0.014</del><br/>NEW    |
 | Base de données | <del>0</del><br/>0.0033           | <del>0</del><br/>0.000067         | 0.0       | <del>0</del><br/>0.064      | 0.0         | <del>0</del><br/>0.067      |
 
 ### (b) Lecture d’une publication
 
 |                 | cpu (Wh)                          | mem (Wh)                          | disk (Wh) | network (Wh)                | screen (Wh) | total (Wh)                  |
 | --------------- | --------------------------------- | --------------------------------- | --------- | --------------------------- | ----------- | --------------------------- |
-| Navigateur      | <del>0.0035</del><br/>0.00094     | <del>0.000065</del><br/>0.000046  | 0.0       | <del>0.062</del><br/>0.0019 | 0.072       | <del>0.14</del><br/>0.075   |
-| Serveur Web     | <del>0.000074</del><br/>0.0000036 | <del>0.000021</del><br/>0.0000028 | 0.0       | <del>0.063</del><br/>0.0019 | 0.0         | <del>0.064</del><br/>0.0019 |
+| Navigateur      | <del>0.00083</del><br/>NEW        | <del> 0.000049</del><br/>NEW      | 0.0       | <del>0.014</del><br/>NEW    | 0.067       | <del>0.082</del><br/>NEW    |
+| Serveur Web     | <del>0.0000087</del><br/>NEW      | <del>0.0000028</del><br/>NEW      | 0.0       | <del>0.014</del><br/>NEW    | 0.0         | <del>0.014</del><br/>NEW    |
 | Base de données | <del>0</del><br/>0.00062          | <del>0</del><br/>0.000064         | 0.0       | <del>0</del><br/>0.0000091  | 0.0         | <del>0</del><br/>0.00070    |
 
 **Tab.9 : Effet sur la consommation énergétique pour la consultation du fil social (a) et d’une publication (b).**
