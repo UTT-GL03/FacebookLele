@@ -4,13 +4,13 @@ import { Link, useParams } from 'react-router-dom'
 function PostPage() {
   const { id } = useParams()
   const [post, setPost] = useState(null)
+  const [open, setOpen] = useState(false)  // <-- état du menu déroulant
 
   useEffect(() => {
-    fetch('/sample_data.json')
+    fetch(`http://localhost:5984/facebooklele_database/${id}`)
       .then(response => response.json())
-      .then(data => {
-        const foundPost = data.docs.find((p) => p._id === id) //mettre id au lieu de Number(id) ou l'inverse
-        setPost(foundPost)
+      .then(post => {
+        setPost(post)
       })
       .catch(error => {
         console.error('Erreur lors du chargement des données:', error)
@@ -24,15 +24,42 @@ function PostPage() {
   return (
     <div className="post-page">
       <h2>{post.title}</h2>
+
       <p className="post-meta">
         Publié par {post.author} le {post.date}
       </p>
+
       <p>{post.content}</p>
+
       {post.image && <img src={post.image} alt={post.title} />}
-      {post.comment && <p>{post.comment}</p>}
-      <Link to="/" className="back-button">Retour</Link>
+
+      {/* Section Commentaires */}
+      {post.commentsSection && post.commentsSection.length > 0 && (
+        <div className="comments-section">
+          <button
+            onClick={() => setOpen(!open)}
+            className="accordion-btn"
+          >
+            Commentaires ({post.commentsSection.length})
+            <span className={`arrow ${open ? "open" : ""}`}>▼</span>
+          </button>
+
+          <div className={`accordion-content ${open ? "show" : ""}`}>
+            {post.commentsSection.map((comment, index) => (
+              <div key={index} className="comment">
+                <p className="comment-author">{comment.authorscomments}</p>
+                <p>{comment.comments}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <Link to="/" className="back-button">
+        Retour
+      </Link>
     </div>
-  )
+  );
 }
 
 export default PostPage

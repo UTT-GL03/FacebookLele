@@ -169,3 +169,79 @@
   font-size: 1.2rem;
   cursor: pointer;
 }
+
+.comments-section {
+  margin-top: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fafafa;
+  border: 1px solid #ddd;
+}
+
+/* Bouton Accordéon */
+.accordion-btn {
+  width: 100%;
+  padding: 15px 20px;
+  background: #eee;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-btn:hover {
+  background: #e2e2e2;
+}
+
+/* Flèche */
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Contenu de l'accordéon */
+.accordion-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  padding: 0 20px;
+}
+
+.accordion-content.show {
+  max-height: 400px; /* <-- hauteur visible (ajuste selon ton design) */
+  opacity: 1;
+  padding: 15px 20px;
+  overflow-y: auto; /* <-- permet le défilement */
+  scrollbar-width: thin; /* Firefox */
+}
+
+/* Optionnel : style du scroll */
+.accordion-content.show::-webkit-scrollbar {
+  width: 8px;
+}
+
+.accordion-content.show::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+.comment {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.comment-author {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #444;
+}

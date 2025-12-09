@@ -5,10 +5,11 @@ function HomePage() {
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
-    fetch('/sample_data.json')
+    fetch('http://localhost:5984/facebooklele_database/_all_docs?include_docs=true')
       .then(response => response.json())
       .then(data => {
-        setPosts(data.docs)
+        const posts = data.rows.map(row => row.doc)
+        setPosts(posts)
       })
       .catch(error => {
         console.error('Erreur lors du chargement des données:', error)
@@ -18,7 +19,7 @@ function HomePage() {
   return (
     <>
       {posts.map((p) => (
-        <Post key={p.id} post={p} />
+        <Post key={p._id} post={p} />
       ))}
     </>
   )
