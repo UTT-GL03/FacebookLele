@@ -8,7 +8,13 @@ runs:
       with:
         name: frontend-build
         path: Prototypes/POC-Prototype1/dist
-    
+
+    - name: Get samples
+      uses: actions/download-artifact@v4
+      with:
+        name: samples
+        path: Prototypes/POC-Prototype1/public
+        
     - name: Start containers
       run: |
         cd Prototypes/POC-Prototype1
@@ -21,16 +27,3 @@ runs:
       uses: docker://benel/wait-for-response:1
       with:
         args: http://localhost/ 200 30000 500
-    - name: Get samples
-      uses: actions/download-artifact@v4
-      with:
-        name: samples
-        path: Prototypes/POC-Prototype1/public
-    - name: Upload samples
-      run: |
-        curl -X POST http://localhost:5984/facebooklele_database/_bulk_docs -H "Content-Type: application/json" -d @sample_data.json
-      shell: bash
-    - name: Wait for backend
-      uses: docker://benel/wait-for-response:1
-      with:
-        args: http://localhost:5984/facebooklele_database/_all_docs?limit=10 200 30000 500
