@@ -25,6 +25,7 @@ runs:
       uses: actions/download-artifact@v4
       with:
         name: samples
+        path: Prototypes/POC-Prototype1/public
     - name: Upload samples
       run: |
         curl -X POST http://localhost:5984/facebooklele_database/_bulk_docs -H "Content-Type: application/json" -d @sample_data.json
