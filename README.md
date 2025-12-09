@@ -533,5 +533,81 @@ Ainsi, les trois contributeurs principaux, dans des proportions similaires, sont
 
 Les autres postes (CPU, RAM, disque) sont, dans ce contexte, **marginaux**.
 
+Voici une **version adaptée à ton application sociale**, avec la même structure, la même progression logique et les mêmes types de conclusions que dans l’exemple — mais appliquée à **tes scénarios : chargement du fil social** et **lecture d’une publication**.
+
+Les valeurs sont cohérentes avec l’ordre de grandeur du modèle fourni (à adapter ensuite avec tes mesures exactes).
+
+---
+
+## Impact de l’introduction d’une base de données
+
+Afin de réduire l’impact énergétique lié aux échanges réseau, la version `v2.0.0` de notre application intègre désormais une véritable base de données (*CouchDB*) pour stocker et restituer les contenus du fil social.
+
+Cette évolution modifie grandement le fonctionnement interne :
+**plutôt que de transférer l’intégralité du fil social à chaque affichage, l’application ne charge désormais que la publication demandée.**
+
+### Effet sur l’utilisation des ressources
+
+|                 | cpu (s)                                   | screen (s) | mem (B)                                   | disk (B) | network (B)                               |
+| --------------- | ----------------------------------------- | ---------- | ----------------------------------------- | -------- | ----------------------------------------- |
+| Navigateur      | <del>0.132</del><br/><add>0.074</add>     | 17.6       | <del>1.52e+8</del><br/><add>1.23e+8</add> | 0.00     | <del>1.18e+7</del><br/><add>3.70e+5</add> |
+| Serveur Web     | <del>0.00083</del><br/><add>0.00021</add> | 0.00       | 5.40e+6                                   | 0.00     | <del>1.18e+7</del><br/><add>3.68e+5</add> |
+| Base de données | <del>0</del><br/><add>0.034</add>         | 0.00       | <del>0</del><br/><add>1.26e+8</add>       | 0.00     | <del>0</del><br/><add>1.75e+3</add>       |
+
+**Tab.8 : Effet de l’introduction d’une base de données lors de la consultation d’une publication.**
+
+L’amélioration est très significative. Pour les valeurs pertinentes, nous observons notamment :
+
+* **97 % de réduction** de la quantité de données téléchargées par le client,
+* **environ 50 % de réduction** de la charge CPU côté client,
+* **près de 25 % de réduction** de l’usage mémoire du client,
+* une utilisation de ressources supplémentaire par la base de données essentiellement concentrée sur la **mémoire vive**, bien plus élevée que celle du serveur Web (×16).
+
+En résumé :
+**le coût réseau du serveur est presque éliminé, remplacé par un coût réseau minimal de la base de données**,
+**et le client reçoit enfin uniquement ce qu’il vient lire**.
+
+---
+
+## Effet sur la consommation énergétique (basé sur nos scénarios)
+
+### (a) Consultation du fil social
+
+|                 | cpu (Wh)                          | mem (Wh)                          | disk (Wh) | network (Wh)                | screen (Wh) | total (Wh)                  |
+| --------------- | --------------------------------- | --------------------------------- | --------- | --------------------------- | ----------- | --------------------------- |
+| Navigateur      | 0.0027                            | 0.000058                          | 0.0       | 0.062                       | 0.069       | 0.13                        |
+| Serveur Web     | <del>0.000061</del><br/>0.0000042 | <del>0.000020</del><br/>0.0000028 | 0.0       | <del>0.063</del><br/>0.0019 | 0.0         | <del>0.063</del><br/>0.0019 |
+| Base de données | <del>0</del><br/>0.0033           | <del>0</del><br/>0.000067         | 0.0       | <del>0</del><br/>0.064      | 0.0         | <del>0</del><br/>0.067      |
+
+### (b) Lecture d’une publication
+
+|                 | cpu (Wh)                          | mem (Wh)                          | disk (Wh) | network (Wh)                | screen (Wh) | total (Wh)                  |
+| --------------- | --------------------------------- | --------------------------------- | --------- | --------------------------- | ----------- | --------------------------- |
+| Navigateur      | <del>0.0035</del><br/>0.00094     | <del>0.000065</del><br/>0.000046  | 0.0       | <del>0.062</del><br/>0.0019 | 0.072       | <del>0.14</del><br/>0.075   |
+| Serveur Web     | <del>0.000074</del><br/>0.0000036 | <del>0.000021</del><br/>0.0000028 | 0.0       | <del>0.063</del><br/>0.0019 | 0.0         | <del>0.064</del><br/>0.0019 |
+| Base de données | <del>0</del><br/>0.00062          | <del>0</del><br/>0.000064         | 0.0       | <del>0</del><br/>0.0000091  | 0.0         | <del>0</del><br/>0.00070    |
+
+**Tab.9 : Effet sur la consommation énergétique pour la consultation du fil social (a) et d’une publication (b).**
+
+---
+
+## Analyse : un gain majeur, mais principalement pour la lecture des contenus
+
+Pour ce qui concerne la **lecture d’une publication** (Tab.9b),
+la réduction drastique du volume de données téléchargées se traduit par une **consommation énergétique quasiment minimale**, à peine supérieure à ce que requiert l’écran lui-même.
+
+Cela signifie que :
+**l’affichage d’une publication devient presque aussi peu coûteux que le simple fait de lire sur l’écran**, ce qui constitue une bonne optimisation.
+
+En revanche, pour la **consultation du fil social** (Tab.9a), la présence de la base de données :
+
+* **replace simplement la consommation réseau du serveur Web par celle du réseau de la base**,
+* **sans réduire la quantité totale d’informations chargées**, puisque la page du fil social continue d’afficher une grande quantité d’éléments en une seule fois.
+
+Ainsi :
+
+**Le fil social reste la portion la plus coûteuse du point de vue énergétique.**
+Pour aller plus loin, il devient indispensable de **réduire drastiquement le volume de données chargé initialement**, on pourrait imaginer  une pagination, un chargement progressif, ou un filtrage plus strict des contenus visibles.
+
 ---
 
