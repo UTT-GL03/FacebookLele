@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: samples
-          path: sample_data.json
+          path: Prototypes/POC-Prototype1/public/sample_data.json
 
   measure_ecoindex:
     needs: 
