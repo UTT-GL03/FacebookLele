@@ -17,10 +17,6 @@ jobs:
         run: |
           cd Prototypes/POC-Prototype1
           npm install
-      - name: Generate sample
-        run: |
-          cd Prototypes/POC-Prototype1
-          npx --yes dummy-json src/data/sample_data.hbs > public/sample_data.json
       - name: Build frontend
         run: |
           cd Prototypes/POC-Prototype1
@@ -30,8 +26,25 @@ jobs:
         with:
           name: frontend-build
           path: Prototypes/POC-Prototype1/dist
+
+  build_samples:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download sources
+        uses: actions/checkout@v5
+      - name: Generate sample
+        run: |
+          npx --yes dummy-json sample_data.hbs > sample_data.json
+      - name: Save samples for later
+        uses: actions/upload-artifact@v4
+        with:
+          name: samples
+          path: sample_data.json
+
   measure_ecoindex:
-    needs: build
+    needs: 
+      - build
+      - build_samples
     runs-on: ubuntu-latest
     steps:
       - name: Download sources
@@ -57,7 +70,9 @@ jobs:
           #path: Prototypes/POC-Prototype1/*.html
 
   measure_energy_consumption:
-    needs: build
+    needs: 
+      - build
+      - build_samples
     runs-on: ubuntu-latest
     steps:
       - name: Download sources

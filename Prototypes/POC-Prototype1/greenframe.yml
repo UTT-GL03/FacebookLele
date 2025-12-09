@@ -7,3 +7,4 @@ scenarios:
     path: ./scenarios/consult_home.cjs
 containers:
   - poc-prototype1-static_hosting-1
+  - poc-prototype1-backend-1
