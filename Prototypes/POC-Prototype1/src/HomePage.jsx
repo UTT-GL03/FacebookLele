@@ -8,7 +8,7 @@ function HomePage() {
     fetch('/sample_data.json')
       .then(response => response.json())
       .then(data => {
-        setPosts(data.posts)
+        setPosts(data.docs)
       })
       .catch(error => {
         console.error('Erreur lors du chargement des données:', error)

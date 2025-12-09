@@ -9,7 +9,7 @@ function PostPage() {
     fetch('/sample_data.json')
       .then(response => response.json())
       .then(data => {
-        const foundPost = data.posts.find((p) => p.id === Number(id))
+        const foundPost = data.docs.find((p) => p._id === id) //mettre id au lieu de Number(id) ou l'inverse
         setPost(foundPost)
       })
       .catch(error => {

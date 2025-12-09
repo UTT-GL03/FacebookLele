@@ -1,8 +1,9 @@
 {{#repeat 1}}
 {
-  "posts": [
+  "docs": [
     {{#repeat 3000}}
     {
+      "_id": "post_{{add @index 1}}",
       "id": {{add @index 1}},
       "author": "{{firstName}} {{lastName}}",
       "date": "{{date '2024-10-07' '2025-10-08' 'YYYY-MM-DD hh:mm'}}",
