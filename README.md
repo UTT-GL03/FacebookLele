@@ -539,7 +539,7 @@ Les valeurs sont cohérentes avec l’ordre de grandeur du modèle fourni (à ad
 
 ---
 
-## Impact de l’introduction d’une base de données
+## Effet de l’introduction d’une base de données
 
 Afin de réduire l’impact énergétique lié aux échanges réseau, la version `v2.0.0` de notre application intègre désormais une véritable base de données (*CouchDB*) pour stocker et restituer les contenus du fil social.
 
@@ -611,3 +611,15 @@ Pour aller plus loin, il devient indispensable de **réduire drastiquement le vo
 
 ---
 
+
+### Stratégie de limitation du nombre d’éléments affichés
+
+Dans une plateforme sociale, comme dans notre projet, les utilisateurs peuvent publier du contenu en continu. Afficher l’ensemble des publications stockées dans la base (plusieurs dizaines de milliers de documents) serait trop coûteux, autant pour les performances que pour l’expérience utilisateur. Il pourrait être inutile et innapropprié d'afficher du contenu datant de plusieurs années par ailleurs.
+
+Pour garantir un affichage fluide tout en restant fidèle au fonctionnement initial de l’application, nous appliquons donc un filtre sur les données récupérées depuis CouchDB. Deux stratégies sont possibles :
+
+- afficher uniquement les publications créées récemment
+
+- ou récupérer les `n` dernières publications, où `n` correspond au volume habituellement visible dans l’interface auparavant (par exemple 20 ou 30 posts).
+
+Dans notre cas, nous avons retenu la seconde option : charger uniquement les derniers documents ajoutés dans la base, en utilisant un paramètre de limite (?limit=n) lors de la requête CouchDB. Cette approche permet de conserver un comportement cohérent avec l’application d’origine, tout en évitant une surcharge inutile lors du rendu ou du scroll.
