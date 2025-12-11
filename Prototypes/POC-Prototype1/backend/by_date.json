@@ -1,0 +1,7 @@
+{
+  "index": {
+    "fields": ["date"]
+  },
+  "name": "index-by-date",
+  "type": "json"
+}
