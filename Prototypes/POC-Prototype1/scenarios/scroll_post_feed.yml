@@ -89,7 +89,6 @@
       element: 'a.back-button'
       pageChange: true
       waitForSelector: 'body'
-
     - name: Focus recherche auteur
       type: click
       element: '#author-search'
@@ -113,9 +112,6 @@
     - name: Valider selection
       type: press
       key: Enter
-      waitForTimeout: 1000
-    - name: Attendre chargement posts filtres
-      type: waitForTimeout
       waitForTimeout: 1000
     - name: Scroll 1
       type: press
