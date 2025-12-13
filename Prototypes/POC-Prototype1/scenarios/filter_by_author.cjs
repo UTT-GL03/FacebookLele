@@ -5,19 +5,19 @@ const visit = async (page) => {
   });
   await page.waitForTimeout(5000);
   
-  const authorValue = await page.$eval('#author-select', (select) => {
-    const options = Array.from(select.options);
-    return options[8].value;
+  await page.evaluate(() => {
+    const select = document.querySelector('#author-select');
+    if (select && select.options.length > 8) {
+      select.value = select.options[8].value;
+      // Déclencher l'événement change pour que React détecte le changement
+      select.dispatchEvent(new Event('change', { bubbles: true }));
+    }
   });
-  
-  if (authorValue) {
-    await page.select('#author-select', authorValue);
-    await page.waitForNetworkIdle();
-    await page.waitForTimeout(5000);
-  
-    await page.scrollToEnd();
-    await page.waitForTimeout(3000);
-  }
+
+  await page.waitForNetworkIdle();
+  await page.waitForTimeout(5000);
+  await page.scrollToEnd();
+  await page.waitForTimeout(3000);
 };
 
 module.exports = visit;
