@@ -89,3 +89,50 @@
       element: 'a.back-button'
       pageChange: true
       waitForSelector: 'body'
+
+    - name: Focus recherche auteur
+      type: click
+      element: '#author-search'
+    - name: Taper debut auteur
+      type: type
+      element: '#author-search'
+      text: 'art'
+      delay: 100
+    - name: Pause apres recherche
+      type: waitForTimeout
+      waitForTimeout: 500
+    - name: Ouvrir select auteur
+      type: click
+      element: '#author-select'
+    - name: Choisir premier auteur filtre
+      type: select
+      element: '#author-select'
+      valueIndex: 1
+    - name: Attendre chargement posts filtres
+      type: waitForTimeout
+      waitForTimeout: 1000
+    - name: Scroll 1
+      type: press
+      key: PageDown
+      waitForTimeout: 300
+    - name: Scroll 2
+      type: press
+      key: PageDown
+      waitForTimeout: 300
+    - name: Scroll 3
+      type: press
+      key: PageDown
+      waitForTimeout: 300
+    - name: Choisir un post filtre
+      type: click
+      element: 'a.post-link:first-of-type'
+      pageChange: true
+      timeoutBefore: 1000
+      waitForSelector: 'body'
+    - name: Lire le post
+      type: scroll
+    - name: Retourner aux posts
+      type: click
+      element: 'a.back-button'
+      pageChange: true
+      waitForSelector: 'body'
