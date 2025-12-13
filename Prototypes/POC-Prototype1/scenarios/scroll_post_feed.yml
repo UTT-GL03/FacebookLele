@@ -102,12 +102,18 @@
     - name: Lettre T
       type: press
       key: t
-    - name: Ouvrir select
-      type: click
-      element: '#author-select'
-    - name: Cliquer 2e option
-      type: click
-      element: '#author-select option:nth-of-type(2)'
+    - name: Descendre une option
+      type: press
+      key: ArrowDown
+      waitForTimeout: 200
+    - name: Descendre deuxieme option
+      type: press
+      key: ArrowDown
+      waitForTimeout: 200
+    - name: Valider selection
+      type: press
+      key: Enter
+      waitForTimeout: 1000
     - name: Attendre chargement posts filtres
       type: waitForTimeout
       waitForTimeout: 1000
