@@ -5,7 +5,7 @@ scenarios:
     path: ./scenarios/consult_post.cjs
   - name: Consulter la liste des posts (page d'accueil)
     path: ./scenarios/consult_home.cjs
-  - name: Consulter les posts d'un autheur en particulier
+  - name: Consulter les posts d'un auteur en particulier
     path: ./scenarios/filter_by_author.cjs
 containers:
   - poc-prototype1-static_hosting-1
