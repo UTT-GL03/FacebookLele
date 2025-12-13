@@ -1,6 +1,6 @@
 // Scénario : Filtrer les posts par auteur
 const visit = async (page) => {
-  await page.goto('/', {
+  await page.goto('', {
     waitUntil: 'networkidle',
   });
   await page.waitForTimeout(5000);
