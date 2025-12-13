@@ -25,7 +25,7 @@
       waitForTimeout: 300
     - name: Choisir un post
       type: click
-      element: 'a.post-link[href="/post/post_1720"]'
+      element: 'a.post-link:first-of-type'
       pageChange: true
       timeoutBefore: 1000
       waitForSelector: 'body'
@@ -78,7 +78,7 @@
       waitForTimeout: 300
     - name: Choisir un deuxieme post
       type: click
-      element: 'a.post-link[href="/post/post_2581"]'
+      element: 'a.post-link:nth-of-type(17)'
       pageChange: true
       timeoutBefore: 1000
       waitForSelector: 'body'

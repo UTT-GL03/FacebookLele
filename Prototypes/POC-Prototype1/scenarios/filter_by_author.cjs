@@ -1,21 +1,23 @@
 // Scénario : Filtrer les posts par auteur
 const visit = async (page) => {
-  // 1. Charger la page d'accueil avec tous les posts
   await page.goto('/', {
     waitUntil: 'networkidle',
   });
   await page.waitForTimeout(5000);
   
-  await page.scrollToEnd();
-  await page.waitForNetworkIdle();
-  await page.waitForTimeout(3000);
-
-  await page.select('#author-select', 'Haley Pleiman');
-  await page.waitForNetworkIdle();
-  await page.waitForTimeout(5000);
+  const authorValue = await page.$eval('#author-select', (select) => {
+    const options = Array.from(select.options);
+    return options[8].value;
+  });
   
-  await page.scrollToEnd();
-  await page.waitForTimeout(3000);
+  if (authorValue) {
+    await page.select('#author-select', authorValue);
+    await page.waitForNetworkIdle();
+    await page.waitForTimeout(5000);
+  
+    await page.scrollToEnd();
+    await page.waitForTimeout(3000);
+  }
 };
 
 module.exports = visit;
