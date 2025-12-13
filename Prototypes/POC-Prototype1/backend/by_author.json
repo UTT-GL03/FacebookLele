@@ -1,0 +1,7 @@
+{
+  "index": {
+    "fields": ["author"]
+  },
+  "name": "index-by-author",
+  "type": "json"
+}

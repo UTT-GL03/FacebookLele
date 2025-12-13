@@ -48,9 +48,11 @@ services:
     entrypoint: ["/bin/sh","-c"]
     volumes:
       - ./backend/by_date.json:/by_date.json
+      - ./backend/by_author.json:/by_author.json
     command:
       - |
         curl -X POST http://backend:5984/facebooklele_database/_index -H "Content-Type: application/json" -d @/by_date.json -u '${COUCHDB_USER}:${COUCHDB_PASSWORD}'
+        curl -X POST http://backend:5984/facebooklele_database/_index -H "Content-Type: application/json" -d @/by_author.json -u '${COUCHDB_USER}:${COUCHDB_PASSWORD}'
     depends_on:
       accessible_backend:
         condition: service_completed_successfully
