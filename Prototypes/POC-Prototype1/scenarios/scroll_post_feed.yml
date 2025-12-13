@@ -93,21 +93,21 @@
     - name: Focus recherche auteur
       type: click
       element: '#author-search'
-    - name: Taper debut auteur
-      type: type
-      element: '#author-search'
-      text: 'art'
-      delay: 100
-    - name: Pause apres recherche
-      type: waitForTimeout
-      waitForTimeout: 500
-    - name: Ouvrir select auteur
+    - name: Lettre A
+      type: press
+      key: a
+    - name: Lettre R
+      type: press
+      key: r
+    - name: Lettre T
+      type: press
+      key: t
+    - name: Ouvrir select
       type: click
       element: '#author-select'
-    - name: Choisir premier auteur filtre
-      type: select
-      element: '#author-select'
-      valueIndex: 1
+    - name: Cliquer 2e option
+      type: click
+      element: '#author-select option:nth-of-type(2)'
     - name: Attendre chargement posts filtres
       type: waitForTimeout
       waitForTimeout: 1000
