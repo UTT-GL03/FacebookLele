@@ -1,6 +1,6 @@
 // Scénario : Consulter un post spécifique
 const visit = async (page) => {
-  await page.goto('/post/26', {
+  await page.goto('/post/post_2581', {
     waitUntil: 'networkidle',
   });
   await page.waitForTimeout(10000);
