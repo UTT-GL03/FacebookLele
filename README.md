@@ -550,22 +550,21 @@ Cette évolution modifie grandement le fonctionnement interne :
 
 |                 | cpu (s)                                   | screen (s) | mem (B)                                   | disk (B) | network (B)                               |
 | --------------- | ----------------------------------------- | ---------- | ----------------------------------------- | -------- | ----------------------------------------- |
-| Navigateur      | <del>0.0666</del><br/><add>NEW</add>     | 17.3       | <del>1.31e+8</del><br/><add>NEW</add>      | 0.00     | <del>2.67e+6</del><br/><add>NEW</add> |
-| Serveur Web     | <del>0.000495</del><br/><add>NEW</add>   | 0.00       | <del>5.56e+6</del><br/><add>NEW</add>      | 0.00     | <del>2.67e+6</del><br/><add>NEW</add> |
-| Base de données | <del>0</del><br/><add>0.034</add>         | 0.00       | <del>0</del><br/><add>1.26e+8</add>       | 0.00     | <del>0</del><br/><add>1.75e+3</add>       |
+| Navigateur      | <del>0.0666</del><br/><add>0.0530</add>    | 17.3      | <del>1.31e+8</del><br/><add>1.19e+8</add> | 0.00     | <del>2.67e+6</del><br/><add>2.70e+5</add> |
+| Serveur Web     | <del>0.000495</del><br/><add>0.000185</add>| 0.00      | <del>5.56e+6</del><br/><add>5.62e+6</add> | 0.00     | <del>2.67e+6</del><br/><add>2.69e+5</add> |
+| Base de données | <del>0</del><br/><add>0.0268</add>         | 0.00      | <del>0</del><br/><add>1.00e+8</add>       | 0.00     | <del>0</del><br/><add>1.43e+3</add>       |
 
 **Tab.8 : Effet de l’introduction d’une base de données lors de la consultation d’une publication.**
 
 L’amélioration est très significative. Pour les valeurs pertinentes, nous observons notamment :
 
-* **97 % de réduction** de la quantité de données téléchargées par le client,
-* **environ 50 % de réduction** de la charge CPU côté client,
-* **près de 25 % de réduction** de l’usage mémoire du client,
+* **90 % de réduction** de la quantité de données téléchargées par le client,
+* **environ 21 % de réduction** de la charge CPU côté client,
+* **près de 10 % de réduction** de l’usage mémoire du client,
 * une utilisation de ressources supplémentaire par la base de données essentiellement concentrée sur la **mémoire vive**, bien plus élevée que celle du serveur Web (×16).
 
 En résumé :
-**le coût réseau du serveur est presque éliminé, remplacé par un coût réseau minimal de la base de données**,
-**et le client reçoit enfin uniquement ce qu’il vient lire**.
+**le coût réseau du serveur est presque éliminé, remplacé par un coût réseau minimal de la base de données**, **et le client reçoit enfin uniquement ce qu’il vient lire**.
 
 ---
 
@@ -575,17 +574,23 @@ En résumé :
 
 |                 | cpu (Wh)                          | mem (Wh)                          | disk (Wh) | network (Wh)                | screen (Wh) | total (Wh)                  |
 | --------------- | --------------------------------- | --------------------------------- | --------- | --------------------------- | ----------- | --------------------------- |
-| Navigateur      | 0.0045                            | 0.00014                           | 0.0       | 0.014                       | 0.099       | 0.12                        |
-| Serveur Web     | <del>0.0000078</del><br/NEW       | <del>0.0000041</del><br/>NEW      | 0.0       | <del>0.014</del><br/>NEW    | 0.0         | <del>0.014</del><br/>NEW    |
-| Base de données | <del>0</del><br/>0.0033           | <del>0</del><br/>0.000067         | 0.0       | <del>0</del><br/>0.064      | 0.0         | <del>0</del><br/>0.067      |
+| Navigateur      | <del>0.0045</del><br/>0.0055      | <del>0.00014</del><br/>0.00014    | 0.0       | <del>0.014</del><br/>0.014  | 0.099       | <del>0.12</del><br/>0.12    |
+| Serveur Web     | <del>0.0000078</del><br/>0.0000027| <del>0.0000041</del><br/>0.0000042| 0.0       | <del>0.014</del><br/>0.0014 | 0.0         | <del>0.014</del><br/>0.0014 |
+| Base de données | <del>0</del><br/>0.0021           | <del>0</del><br/>0.000074         | 0.0       | <del>0</del><br/>0.012      | 0.0         | <del>0</del><br/>0.015      | 
+|Total            |                                   |                                   |           |                             |             | <del>0,134 Wh</del> 0,1364 Wh $${\color{red}+1,7\\%}$$ |
+
+The estimated footprint is <del>58.058 mg eq. co2 ± 0\% (**131.353 mWh**)</del>  -> 59.502 mg eq. co2 ± 0.2\% (**134.619 mWh**). $${\color{red}+2.4\\%}$$ 
 
 ### (b) Lecture d’une publication
 
 |                 | cpu (Wh)                          | mem (Wh)                          | disk (Wh) | network (Wh)                | screen (Wh) | total (Wh)                  |
 | --------------- | --------------------------------- | --------------------------------- | --------- | --------------------------- | ----------- | --------------------------- |
-| Navigateur      | <del>0.00083</del><br/>NEW        | <del> 0.000049</del><br/>NEW      | 0.0       | <del>0.014</del><br/>NEW    | 0.067       | <del>0.082</del><br/>NEW    |
-| Serveur Web     | <del>0.0000087</del><br/>NEW      | <del>0.0000028</del><br/>NEW      | 0.0       | <del>0.014</del><br/>NEW    | 0.0         | <del>0.014</del><br/>NEW    |
-| Base de données | <del>0</del><br/>0.00062          | <del>0</del><br/>0.000064         | 0.0       | <del>0</del><br/>0.0000091  | 0.0         | <del>0</del><br/>0.00070    |
+| Navigateur      | <del>0.00083</del><br/>0.00066    | <del> 0.000049</del><br/>0.000044 | 0.0    | <del>0.014</del><br/>0.0014    | 0.067       | <del>0.082</del><br/>0.070  |
+| Serveur Web     | <del>0.0000087</del><br/>0.0000032| <del>0.0000028</del><br/>0.0000029| 0.0       | <del>0.014</del><br/>0.0014 | 0.0         | <del>0.014</del><br/>0.0014 |
+| Base de données | <del>0</del><br/>0.00047          | <del>0</del><br/>0.000051         | 0.0       | <del>0</del><br/>0.0000073  | 0.0         | <del>0</del><br/>0.00053    |
+|Total            |                                   |                                   |           |                             |             | <del>0,096 Wh</del> 0,07193 Wh $${\color{green}-25\\%}$$ |   
+
+The estimated footprint is <del>42.218 mg eq. co2 ± 0.6\% (**95.515 mWh**)</del>  -> 31.888 mg eq. co2 ± 0.3\% (**72.144 mWh**). $${\color{green}-25\\%}$$ 
 
 **Tab.9 : Effet sur la consommation énergétique pour la consultation du fil social (a) et d’une publication (b).**
 
@@ -611,15 +616,3 @@ Pour aller plus loin, il devient indispensable de **réduire drastiquement le vo
 
 ---
 
-
-### Stratégie de limitation du nombre d’éléments affichés
-
-Dans une plateforme sociale, comme dans notre projet, les utilisateurs peuvent publier du contenu en continu. Afficher l’ensemble des publications stockées dans la base (plusieurs dizaines de milliers de documents) serait trop coûteux, autant pour les performances que pour l’expérience utilisateur. Il pourrait être inutile et innapropprié d'afficher du contenu datant de plusieurs années par ailleurs.
-
-Pour garantir un affichage fluide tout en restant fidèle au fonctionnement initial de l’application, nous appliquons donc un filtre sur les données récupérées depuis CouchDB. Deux stratégies sont possibles :
-
-- afficher uniquement les publications créées récemment
-
-- ou récupérer les `n` dernières publications, où `n` correspond au volume habituellement visible dans l’interface auparavant (par exemple 20 ou 30 posts).
-
-Dans notre cas, nous avons retenu la seconde option : charger uniquement les derniers documents ajoutés dans la base, en utilisant un paramètre de limite (?limit=n) lors de la requête CouchDB. Cette approche permet de conserver un comportement cohérent avec l’application d’origine, tout en évitant une surcharge inutile lors du rendu ou du scroll.
