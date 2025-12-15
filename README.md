@@ -159,6 +159,8 @@ L'EcoIndex d'une page (de A à G) est calculé (sources : EcoIndex, Octo, GreenI
 | 2 — Navigation & Messagerie | ~250 | 3 000–9 000 | 9.5 | F-G 🟪 | 2.8 | 4.2 |[Voir le fichier](./data/Scénario%202%20GreenIT.csv) |
 | 3 — Publication & Interaction | ~700 | 7 000–35 000 | 5.0 | G 🟥 | 2.9 | 4.4 |[Voir le fichier](./data/Scénario%203%20GreenIT.csv) |
 
+**Tab.1 : Résulats GreenIT Analysis des scénarios initiaux.**
+
 ## Analyse et interprétation
 
 Les résultats montrent des différences notables selon le type d’usage :
@@ -177,6 +179,8 @@ Les pages les plus lourdes contiennent de nombreux scripts, traqueurs et contenu
 | **Facebook** | Mix texte, images, vidéos | 🔴 Élevé (E–G) | Nombreuses requêtes, scripts et traqueurs |
 | **Instagram** | Photos et Reels | 🔴 Très élevé (F–G) | Contenu vidéo et image très lourd |
 | **X / Twitter** | Texte + images légères | 🟠 Moyen (C–D) | Interface plus légère, peu de vidéos |
+
+**Tab.2 : Résulats GreenIT  Analysis des réseaux sociaux mainstream.**
 
 ---
 
@@ -200,7 +204,7 @@ Notre objectif est de concevoir un réseau social **sobre**, **éthique** et **r
 | **Mastodon** | Dons / financement participatif | Aucune | Gratuit, sans publicité, décentralisé |
 | **Diaspora*** | Dons / auto-hébergement | Aucune | Gratuit, sans publicité, contrôle local des données |
 
-**Tableau 1 : Comparaison synthétique des modèles économiques de réseaux sociaux.**
+**Tab.3 : Comparaison synthétique des modèles économiques de réseaux sociaux.**
 
 Deux tendances majeures se dégagent :
 
@@ -249,9 +253,9 @@ Il repose sur quatre principes :
 | Publicité non ciblée (régie interne) | ~0,001 € / affichage | ~3 000 000 affichages/mois |
 | Don volontaire (moyenne) | 5 € / don | ~480 dons/an |
 
-\* Estimations basées sur un salaire brut annuel de 28 000 €.
+**Tab.4 : Simulation simplifiée des revenus potentiels.**
 
-**Tableau 2 : Simulation simplifiée des revenus potentiels.**
+\* Estimations basées sur un salaire brut annuel de 28 000 €.
 
 Sources :
 https://www.statista.com/topics/5063/online-advertising-metrics/?srsltid=AfmBOopj3k6h5mKiE7X7YOaHoswBVkd_kfaQgUihLxLwHkek8PPbNQgj#statisticChapter
@@ -294,9 +298,6 @@ Les ressources représentées sur l’application sont réparties en deux types 
    URI : `/post/{id}`  
    Permet de consulter le contenu complet d’un message, sans éléments interactifs (commentaires, likes) pour cette première version.
 
-
-<img src="readme-images/homepage.png">   
-
 ### Objectif de conception
 
 La maquette a été réalisée avec la volonté d’offrir une interface :
@@ -306,7 +307,6 @@ La maquette a été réalisée avec la volonté d’offrir une interface :
 
 Nous avons privilégié des **composants textuels** et des **contrastes nets**, afin de garantir une lecture fluide et accessible, tout en minimisant la charge graphique.  
 Les éléments d’interaction (boutons, liens, champs de texte) sont conçus pour être immédiatement identifiables et utilisables sans apprentissage préalable.
-
 
 ---
 
@@ -343,16 +343,18 @@ De même, une **optimisation ciblée de la taille des icônes** (sprites, SVG si
 | **Mode "développement"** | 77 B 🟩 | 1,46 | 212 | 17 | 1964 |
 | **Mode "pré-production"** | 92 A 🟦 | 1,1 | 204 | 3 | 85 |
 
+**Tab.5 : Mesures écoindex en mode développement et en mode pré-production.**
+
 ---
 
 ### Page d’accueil (fil social)
 
-La page d’accueil (cf. Fig. 2) présente les publications de manière simple et hiérarchisée, en cohérence avec la maquette initiale.  
+La page d’accueil (cf. Fig. 1) présente les publications de manière simple et hiérarchisée, en cohérence avec la maquette initiale.  
 Chaque message contient un identifiant d’utilisateur, un court texte et un indicateur temporel (date/heure).
 
 <img src="readme-images/homepage.png">   
 
-**Prototype de la page d’accueil — Fig.2 : Fil social.**
+**Prototype de la page d’accueil — Fig.1 : Fil social.**
 
 Contrairement aux réseaux sociaux concurrents, **aucune image, vidéo ou script tiers** n’est chargé dans ce prototype.  
 Les publications sont purement textuelles afin de limiter la bande passante et d’évaluer le comportement du site dans un environnement à faible impact.
@@ -374,7 +376,7 @@ Aucune fonction interactive (like, commentaire, partage) n’est encore intégr�
 
 <img src="readme-images/postpage.png">   
 
-**Prototype d'une page de post — Fig.3 : Posts.**
+**Prototype d'une page de post — Fig.2 : Posts.**
 
 
 #### Évaluation environnementale du scénario prioritaire
@@ -386,7 +388,7 @@ Aucune fonction interactive (like, commentaire, partage) n’est encore intégr�
 | 3. Lire une seconde publication | 94 A 🟦 | 1,09 | 14 | 11 | 3 |
 | 4. Lire une troisième publication | 96 A 🟦 | 1,09 | 14 | 11 | 3 |
 
-**Tab. 2 : Évaluation de l’impact du scénario "Créer un compte, publier et lire des messages" sur le prototype v1.0.0.**
+**Tab.6 : Évaluation de l’impact du scénario "Créer un compte, publier et lire des messages" sur le prototype v1.0.0.**
 
 Ces valeurs, bien qu’idéalisées (chargement statique, absence de base de données, hébergement local), sont **nettement inférieures** à celles observées sur les principaux réseaux sociaux commerciaux, où une page utilisateur dépasse fréquemment **3 à 5 gCO₂e**.
 
@@ -444,14 +446,15 @@ Cette évolution est conforme aux attentes : lors de la mise à l’échelle d�
 
 ### Résultats : avant vs passage à l’échelle
 
-| Étape du scénario                        | EcoIndex Dev → Échelle | GES (gCO₂e) Dev → Échelle | Taille du DOM Dev → Échelle | Requêtes | Taille (ko) Dev → Échelle |
+| Étape du scénario                        | EcoIndex Dev → Échelle   | GES (gCO₂e) Dev → Échelle | Taille du DOM Dev → Échelle | Requêtes | Taille (ko) Dev → Échelle |
 |------------------------------------------|-------------------------|----------------------------|------------------------------|----------|-----------------------------|
-| 1. Charger le fil social                 | 81 A 🟦 → 33 E 🟥       | 1,38 → 2,12                | 220 → 21 017                 | 9        | 500 → 2518               |
-| 2. Lire une première publication         | 92 A 🟦 → 82 A 🟦       | 1,16 → 1,36                | 22 → 22                      | 1        | 39 → 2272                 |
-| 3. Retourner au fil social et le charger | 84 A 🟦 → 35 E 🟥       | 1,16 → 2,30                | 220 → 21 017                 | 1        | 39 → 2272              |
-| 4. Lire une seconde publication          | 92 A 🟦 → 82 A 🟦       | 1,16 → 1,36                | 22 → 22                      | 1        | 18 → 2272                 |
-| 5. Retourner au fil social et le charger | 85 A 🟦 → 47 D 🟨       | 1,30 → 2,06                | 220 → 21 017                 | 0        | 0 → 0              |
+| 1. Charger le fil social                 | 81 A🟦 → 33 E🟥       | 1,38 → 2,12                | 220 → 21 017                 | 9        | 500 → 2518               |
+| 2. Lire une première publication         | 92 A🟦 → 82 A🟦       | 1,16 → 1,36                | 22 → 22                      | 1        | 39 → 2272                 |
+| 3. Retourner au fil social et le charger | 84 A🟦 → 35 E🟥       | 1,16 → 2,30                | 220 → 21 017                 | 1        | 39 → 2272              |
+| 4. Lire une seconde publication          | 92 A🟦 → 82 A🟦       | 1,16 → 1,36                | 22 → 22                      | 1        | 18 → 2272                 |
+| 5. Retourner au fil social et le charger | 85 A🟦 → 47 D🟨       | 1,30 → 2,06                | 220 → 21 017                 | 0        | 0 → 0              |
 
+**Tab.7 : Évolution des mesures écoindex après le passage à l'échelle.**
   
 On constate une **dégradation beaucoup plus importante de l’EcoIndex pour la page du fil social** que pour les pages de publications.  
 Cela s’explique par la nature du calcul de l’EcoIndex, qui prend en compte :
@@ -496,6 +499,8 @@ Les tableaux ci-dessous présentent les résultats estimés pour :
 | Navigateur  | 0.0045   | 0.00014    | 0.0     | 0.014        | 0.099       | 0.12       |
 | Serveur Web | 0.0000078 | 0.0000041 | 0.0     | 0.014        | 0.0         | 0.014      |
 
+**Tab.8 : Estimation de la consommation énergétique de la consultation du fil social.**
+
 ### (b) Lecture d’une publication
 
 |             | cpu (Wh) | mem (Wh) | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
@@ -503,7 +508,7 @@ Les tableaux ci-dessous présentent les résultats estimés pour :
 | Navigateur  | 0.00083   | 0.000049  | 0.0     | 0.014        | 0.067       | 0.082      |
 | Serveur Web | 0.0000087 | 0.0000028 | 0.0     | 0.014        | 0.0         | 0.014      |
 
-**Tab.7 : Estimation de la consommation énergétique de la consultation du fil social (a) et de la lecture d’une publication (b).**
+**Tab.9 : Estimation de la consommation énergétique de de la lecture d’une publication.**
 
 ---
 
@@ -554,7 +559,8 @@ Cette évolution modifie grandement le fonctionnement interne :
 | Serveur Web     | <del>0.000495</del><br/><add>0.000185</add>| 0.00      | <del>5.56e+6</del><br/><add>5.62e+6</add> | 0.00     | <del>2.67e+6</del><br/><add>2.69e+5</add> |
 | Base de données | <del>0</del><br/><add>0.0268</add>         | 0.00      | <del>0</del><br/><add>1.00e+8</add>       | 0.00     | <del>0</del><br/><add>1.43e+3</add>       |
 
-**Tab.8 : Effet de l’introduction d’une base de données lors de la consultation d’une publication.**
+**Tab.10 : Effet de l’introduction d’une base de données lors de la consultation d’une publication.**
+
 
 L’amélioration est très significative. Pour les valeurs pertinentes, nous observons notamment :
 
@@ -579,7 +585,9 @@ En résumé :
 | Base de données | <del>0</del><br/>0.0021           | <del>0</del><br/>0.000074         | 0.0       | <del>0</del><br/>0.012      | 0.0         | <del>0</del><br/>0.015      | 
 |Total            |                                   |                                   |           |                             |             | <del>0,134 Wh</del> 0,1364 Wh $${\color{red}+1,7\\%}$$ |
 
-The estimated footprint is <del>58.058 mg eq. co2 ± 0\% (**131.353 mWh**)</del>  -> 59.502 mg eq. co2 ± 0.2\% (**134.619 mWh**). $${\color{red}+2.4\\%}$$ 
+**Tab.11 : Effet de l’introduction d’une base de données lors de la consultation d’une publication sur l'estimation de la consommation énergétique de la consultation du fil social.**
+
+The estimated footprint is <del>58.058 mg eq. co2 ± 0\% (**131.353 mWh**)</del>  → 59.502 mg eq. co2 ± 0.2\% (**134.619 mWh**). $${\color{red}+2.4\\%}$$ 
 
 ### (b) Lecture d’une publication
 
@@ -590,21 +598,21 @@ The estimated footprint is <del>58.058 mg eq. co2 ± 0\% (**131.353 mWh**)</del>
 | Base de données | <del>0</del><br/>0.00047          | <del>0</del><br/>0.000051         | 0.0       | <del>0</del><br/>0.0000073  | 0.0         | <del>0</del><br/>0.00053    |
 |Total            |                                   |                                   |           |                             |             | <del>0,096 Wh</del> 0,07193 Wh $${\color{green}-25\\%}$$ |   
 
-The estimated footprint is <del>42.218 mg eq. co2 ± 0.6\% (**95.515 mWh**)</del>  -> 31.888 mg eq. co2 ± 0.3\% (**72.144 mWh**). $${\color{green}-25\\%}$$ 
+The estimated footprint is <del>42.218 mg eq. co2 ± 0.6\% (**95.515 mWh**)</del>  → 31.888 mg eq. co2 ± 0.3\% (**72.144 mWh**). $${\color{green}-25\\%}$$ 
 
-**Tab.9 : Effet sur la consommation énergétique pour la consultation du fil social (a) et d’une publication (b).**
+**Tab.12 : Effet de l’introduction d’une base de données lors de la consultation d’une publication sur l'estimation de la consommation énergétique de de la lecture d’une publication.**
 
 ---
 
 ## Analyse : un gain majeur, mais principalement pour la lecture des contenus
 
-Pour ce qui concerne la **lecture d’une publication** (Tab.9b),
+Pour ce qui concerne la **lecture d’une publication** (Tab.12),
 la réduction drastique du volume de données téléchargées se traduit par une **consommation énergétique quasiment minimale**, à peine supérieure à ce que requiert l’écran lui-même.
 
 Cela signifie que :
 **l’affichage d’une publication devient presque aussi peu coûteux que le simple fait de lire sur l’écran**, ce qui constitue une bonne optimisation.
 
-En revanche, pour la **consultation du fil social** (Tab.9a), la présence de la base de données :
+En revanche, pour la **consultation du fil social** (Tab.11), la présence de la base de données :
 
 * **replace simplement la consommation réseau du serveur Web par celle du réseau de la base**,
 * **sans réduire la quantité totale d’informations chargées**, puisque la page du fil social continue d’afficher une grande quantité d’éléments en une seule fois.
@@ -636,7 +644,7 @@ Le chargement progressif des publications est illustré ci-dessous.
 
 <img src="readme-images/bouton-charger-plus.png">
 
-__Fig. X__ : Chargement progressif (à la demande) des publications sur la page d’accueil.
+**Chargement progressif (à la demande) des publications sur la page d’accueil — Fig.3 : Bouton de chargement.**
 
 ---
 
@@ -648,10 +656,12 @@ __Fig. X__ : Chargement progressif (à la demande) des publications sur la page 
 | --------------- | --------------------------------- | --------------------------------- | --------- | --------------------------- | ----------- | --------------------------- |
 | Navigateur      | <del>0.0055</del><br/>0.0011      | <del>0.00014</del><br/>0.000070   | 0.0       | <del>0.014</del><br/>0.0015 | 0.099       | <del>0.12</del><br/>0.10    |
 | Serveur Web     | <del>0.0000027</del><br/>0.0000040| <del>0.0000042</del><br/>0.0000041| 0.0       | <del>0.0014</del><br/>0.0014| 0.0         | <del>0.0014</del><br/>0.0014|
-| Base de données | <del>0.0021</del><br/>0.00095     | <del>>0.000074</del><br/>0.000081 | 0.0       | <del>0.012</del><br/>0.000076| 0.0        | <del>0015</del><br/>0.0011  | 
+| Base de données | <del>0.0021</del><br/>0.00095     | <del>0.000074</del><br/>0.000081 | 0.0       | <del>0.012</del><br/>0.000076| 0.0        | <del>0015</del><br/>0.0011  | 
 |Total            |                                   |                                   |           |                             |             | <del>0,1364 Wh</del> 0.1025 Wh $${\color{green}-25\\%}$$ |
 
-The estimated footprint is <del>59.502 mg eq. co2 ± 0.2\% (**134.619 mWh**)</del>  -> 45.218 mg eq. co2 ± 1.3% (**102.303 mWh**). $${\color{green}-25\\%}$$ 
+**Tab.13 : Effet de l'introduction du chargement progressif des publications sur l'estimation de la consommation énergétique de la consultation du fil social.**
+
+The estimated footprint is <del>59.502 mg eq. co2 ± 0.2\% (**134.619 mWh**)</del>  → 45.218 mg eq. co2 ± 1.3% (**102.303 mWh**). $${\color{green}-25\\%}$$ 
 
 Les mesures GreenFrame réalisées avant et après l’implémentation de cette limitation montrent un effet net sur la consommation énergétique globale, en particulier pour la consultation de la page d’accueil.
 
