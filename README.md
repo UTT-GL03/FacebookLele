@@ -596,9 +596,9 @@ The estimated footprint is <del>58.058 mg eq. co2 ± 0\% (**131.353 mWh**)</del>
 | Base de données | <del>0</del><br/>0.00047          | <del>0</del><br/>0.000051         | 0.0       | <del>0</del><br/>0.0000073  | 0.0         | <del>0</del><br/>0.00053    |
 |Total            |                                   |                                   |           |                             |             | <del>0,096 Wh</del> 0,07193 Wh $${\color{green}-25\\%}$$ |   
 
-The estimated footprint is <del>42.218 mg eq. co2 ± 0.6\% (**95.515 mWh**)</del>  → 31.888 mg eq. co2 ± 0.3\% (**72.144 mWh**). $${\color{green}-25\\%}$$ 
-
 **Tab.12 : Effet de l’introduction d’une base de données lors de la consultation d’une publication sur l'estimation de la consommation énergétique de de la lecture d’une publication.**
+
+The estimated footprint is <del>42.218 mg eq. co2 ± 0.6\% (**95.515 mWh**)</del>  → 31.888 mg eq. co2 ± 0.3\% (**72.144 mWh**). $${\color{green}-25\\%}$$ 
 
 ---
 
