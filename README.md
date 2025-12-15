@@ -255,11 +255,9 @@ Il repose sur quatre principes :
 
 **Tab.4 : Simulation simplifiée des revenus potentiels.**
 
-\* Estimations basées sur un salaire brut annuel de 28 000 €.
-
-Sources :
-https://www.statista.com/topics/5063/online-advertising-metrics/?srsltid=AfmBOopj3k6h5mKiE7X7YOaHoswBVkd_kfaQgUihLxLwHkek8PPbNQgj#statisticChapter
-https://joinmastodon.org/reports/Mastodon%20Annual%20Report%202023.pdf
+*Estimations basées sur un salaire brut annuel de 28 000 €.*  
+https://www.statista.com/topics/5063/online-advertising-metrics/?srsltid=AfmBOopj3k6h5mKiE7X7YOaHoswBVkd_kfaQgUihLxLwHkek8PPbNQgj#statisticChapter  
+https://joinmastodon.org/reports/Mastodon%20Annual%20Report%202023.pdf  
 
 ---
 
