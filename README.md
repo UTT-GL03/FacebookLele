@@ -616,3 +616,78 @@ Pour aller plus loin, il devient indispensable de **réduire drastiquement le vo
 
 ---
 
+### Limitation du nombre d’éléments affichés
+
+Dans les réseaux sociaux classiques, la page d’accueil tend à afficher un nombre important de publications, souvent bien supérieur à ce qui peut être consulté raisonnablement lors d’une seule session.  
+Cette logique, héritée de stratégies d’engagement, se traduit par un chargement massif de données dès l’arrivée sur l’application, indépendamment de l’usage réel qui en sera fait.
+
+Dans le cadre de notre projet, cette approche pose un double problème :
+- elle augmente inutilement la quantité de données transmises sur le réseau,
+- elle alourdit le traitement côté client (DOM, mémoire, temps de rendu), sans bénéfice fonctionnel immédiat pour l’utilisateur.
+
+Nous avons donc choisi de **limiter le nombre de publications affichées initialement** sur la page d’accueil, tout en conservant la possibilité de charger des contenus supplémentaires **à la demande de l’utilisateur**, de manière progressive (20 posts à la fois).
+
+Cette stratégie permet :
+- de garantir une expérience cohérente quel que soit le moment de consultation,
+- de préserver l’accès aux publications plus anciennes,
+- tout en réduisant significativement l’impact environnemental du scénario principal.
+
+Le chargement progressif des publications est illustré ci-dessous.
+
+<img src="readme-images/bouton-charger-plus.png">
+
+__Fig. X__ : Chargement progressif (à la demande) des publications sur la page d’accueil.
+
+---
+
+#### Effet sur la consommation énergétique
+
+### (a) Consultation du fil social
+
+|                 | cpu (Wh)                          | mem (Wh)                          | disk (Wh) | network (Wh)                | screen (Wh) | total (Wh)                  |
+| --------------- | --------------------------------- | --------------------------------- | --------- | --------------------------- | ----------- | --------------------------- |
+| Navigateur      | <del>0.0055</del><br/>0.0011      | <del>0.00014</del><br/>0.000070   | 0.0       | <del>0.014</del><br/>0.0015 | 0.099       | <del>0.12</del><br/>0.10    |
+| Serveur Web     | <del>0.0000027</del><br/>0.0000040| <del>0.0000042</del><br/>0.0000041| 0.0       | <del>0.0014</del><br/>0.0014| 0.0         | <del>0.0014</del><br/>0.0014|
+| Base de données | <del>0.0021</del><br/>0.00095     | <del>>0.000074</del><br/>0.000081 | 0.0       | <del>0.012</del><br/>0.000076| 0.0        | <del>0015</del><br/>0.0011  | 
+|Total            |                                   |                                   |           |                             |             | <del>0,1364 Wh</del> 0.1025 Wh $${\color{green}-25\\%}$$ |
+
+The estimated footprint is <del>59.502 mg eq. co2 ± 0.2\% (**134.619 mWh**)</del>  -> 45.218 mg eq. co2 ± 1.3% (**102.303 mWh**). $${\color{green}-25\\%}$$ 
+
+Les mesures GreenFrame réalisées avant et après l’implémentation de cette limitation montrent un effet net sur la consommation énergétique globale, en particulier pour la consultation de la page d’accueil.
+
+Avant limitation, la consultation du fil social entraînait une consommation estimée d’environ **134 mWh**, principalement due :
+- au volume de données transférées,
+- au temps d’affichage prolongé,
+- et à la charge CPU et mémoire associée au rendu d’un grand nombre d’éléments.
+
+Après limitation du nombre de publications affichées, cette consommation chute à environ **102 mWh**, soit une réduction d’environ $${\color{green}25 \\%}$$ pour ce scénario.  
+Dans le même temps, la consultation d’une publication individuelle reste quasiment inchangée, avec une consommation stable autour de **72 mWh**, ce qui confirme que l’optimisation cible bien la page la plus coûteuse du parcours utilisateur.
+
+Comme dans les étapes précédentes, la consommation énergétique résiduelle est très majoritairement due :
+- à l’écran du terminal client,
+- puis, dans une moindre mesure, au réseau.
+
+Les contributions du CPU, de la mémoire et du backend deviennent marginales, y compris après l’introduction du chargement progressif.
+
+---
+
+#### Discussion
+
+On pourrait objecter que, si l’utilisateur choisissait de charger l’ensemble des publications disponibles, la consommation totale serait alors comparable, voire supérieure à celle observée avant limitation.  
+Cependant, un tel scénario d’usage impliquerait une succession importante d’interactions explicites, ce qui le rend peu probable dans un contexte réel d’utilisation.
+
+De plus, les publications les plus récentes, et donc les plus pertinentes sont affichées en priorité, ce qui réduit encore la nécessité de charger l’intégralité du contenu.
+
+---
+
+#### Synthèse
+
+Le passage à l’échelle du nombre de publications affichées sur la page d’accueil avait conduit à une augmentation significative de la consommation énergétique du scénario principal.  
+Grâce à une **limitation volontaire du nombre d’éléments affichés** et à un **chargement progressif à la demande**, cette consommation est revenue à un niveau proche de celui observé avant le passage à l’échelle.
+
+En l’état, la consommation énergétique du scénario de consultation est :
+- **faiblement dépendante du volume total de données disponibles**,
+- dominée par l’usage de l’écran,
+- et maintenue à un niveau compatible avec les objectifs de sobriété du projet.
+
+L’un des enjeux majeurs des évolutions futures sera donc de **préserver cette propriété**, en veillant à ce que toute nouvelle fonctionnalité n’introduise pas de chargements massifs implicites ou non maîtrisés.
