@@ -66,7 +66,15 @@ function HomePage() {
       .then(response => response.json())
       .then(data => {
         setPosts(prevPosts => [...prevPosts, ...data.docs])
-        setNextBookmark(data.bookmark)
+        if (data.docs.length < 20) {
+          setNextBookmark(undefined)
+        } else {
+          setNextBookmark(data.bookmark)
+        }
+        /*
+        setPosts(prevPosts => [...prevPosts, ...data.docs])
+        setNextBookmark(data.bookmark)  // Toujours défini
+        */       
       })
       .catch(error => {
         console.error('Erreur lors du chargement des données:', error)

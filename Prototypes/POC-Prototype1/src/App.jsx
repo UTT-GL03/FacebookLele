@@ -12,7 +12,7 @@ function App() {
           <Link to="/">
             <img src={facebookLeleLogo} className="logo" alt="FacebookLele logo" />
           </Link>
-          <input type="text" placeholder="Search..." className="search-bar" />
+          <input type="text" placeholder="Rechercher un post..." className="search-bar" />
         </div>
         <button className='create-post-button'>Créer un Post</button>
       </header>
