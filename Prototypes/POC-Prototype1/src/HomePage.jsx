@@ -12,18 +12,14 @@ function HomePage() {
 
   // Récupérer la liste des auteurs uniques
   useEffect(() => {
-    fetch('http://localhost:5984/facebooklele_database/_find', {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        selector: { author: { "$gt": null } },
-        fields: ["author"],
-        limit: 3000
-      })
+    fetch('http://localhost:5984/facebooklele_database/_design/posts/_view/authors?group=true', {
+      method: 'GET',
+      headers: { "Content-Type": "application/json" }
     })
       .then(response => response.json())
       .then(data => {
-        const uniqueAuthors = [...new Set(data.docs.map(doc => doc.author))]
+        // data.rows contient [{key: "auteur1", value: count}, {key: "auteur2", value: count}, ...]
+        const uniqueAuthors = data.rows.map(row => row.key)
         const sorted = uniqueAuthors.sort()
         setAuthors(sorted)
         setFilteredAuthors(sorted)

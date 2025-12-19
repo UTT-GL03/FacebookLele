@@ -1,0 +1,8 @@
+{
+  "views": {
+    "authors": {
+      "map": "function (doc) { if (doc.author) { emit(doc.author, 1); } }",
+      "reduce": "_count"
+    }
+  }
+}
