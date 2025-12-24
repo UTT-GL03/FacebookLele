@@ -622,7 +622,7 @@ Pour aller plus loin, il devient indispensable de **réduire drastiquement le vo
 
 ---
 
-### Limitation du nombre d’éléments affichés
+## Limitation du nombre d’éléments affichés
 
 Dans les réseaux sociaux classiques, la page d’accueil tend à afficher un nombre important de publications, souvent bien supérieur à ce qui peut être consulté raisonnablement lors d’une seule session.  
 Cette logique, héritée de stratégies d’engagement, se traduit par un chargement massif de données dès l’arrivée sur l’application, indépendamment de l’usage réel qui en sera fait.
@@ -646,7 +646,7 @@ Le chargement progressif des publications est illustré ci-dessous.
 
 ---
 
-#### Effet sur la consommation énergétique
+## Effet sur la consommation énergétique
 
 ### (a) Consultation du fil social
 
@@ -679,7 +679,7 @@ Les contributions du CPU, de la mémoire et du backend deviennent marginales, y 
 
 ---
 
-#### Discussion
+### Discussion
 
 On pourrait objecter que, si l’utilisateur choisissait de charger l’ensemble des publications disponibles, la consommation totale serait alors comparable, voire supérieure à celle observée avant limitation.  
 Cependant, un tel scénario d’usage impliquerait une succession importante d’interactions explicites, ce qui le rend peu probable dans un contexte réel d’utilisation.
@@ -688,7 +688,7 @@ De plus, les publications les plus récentes, et donc les plus pertinentes sont 
 
 ---
 
-#### Synthèse
+## Synthèse
 
 Le passage à l’échelle du nombre de publications affichées sur la page d’accueil avait conduit à une augmentation significative de la consommation énergétique du scénario principal.  
 Grâce à une **limitation volontaire du nombre d’éléments affichés** et à un **chargement progressif à la demande**, cette consommation est revenue à un niveau proche de celui observé avant le passage à l’échelle.
@@ -699,3 +699,16 @@ En l’état, la consommation énergétique du scénario de consultation est :
 - et maintenue à un niveau compatible avec les objectifs de sobriété du projet.
 
 L’un des enjeux majeurs des évolutions futures sera donc de **préserver cette propriété**, en veillant à ce que toute nouvelle fonctionnalité n’introduise pas de chargements massifs implicites ou non maîtrisés.
+
+---
+
+## Amélioration
+
+Suite à la finalisation des étapes élémentaires de notre projet nous avons décidé d'implémenter une fonctionnalité supplémentaire : la recherche de posts par auteur.  
+Le but étant d'ajouter une possibilité à l'utilisateur afin de retrouver un post recherché ou de suivre les posts proposés par un utilisateur en particulier.  
+Afin d'implémenter cette nouvelle fonctionnalité, nous sommes passés par une méthode de map reduce directement dans couch DB. L'idée était de ne pas imposer la lourdeur de la recherche à l'utilisateur sur son appareil, mais de plutôt pré-traiter cette demander via notre backend et d'offrir une recherche simplifiée à l'utilisateur final.  
+
+
+<img src="readme-images/author-research-button.png">   
+
+**Fonctionnalité supplémentaire — Fig.4 : Recherche par auteur de posts.**
