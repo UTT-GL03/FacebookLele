@@ -712,3 +712,34 @@ Afin d'implémenter cette nouvelle fonctionnalité, nous sommes passés par une 
 <img src="readme-images/author-research-button.png">   
 
 **Fonctionnalité supplémentaire — Fig.4 : Recherche par auteur de posts.**
+
+---
+
+## Bilan et perspectives
+
+Ce projet nous a permis d’aborder de manière concrète et progressive la conception d’une application web en intégrant, dès les premières étapes, des enjeux de performance et d’impact environnemental.  
+À travers les différentes versions du prototype et les mesures réalisées à l’aide d’outils tels qu’EcoIndex et GreenFrame. De cette expérience, plusieurs enseignements majeurs peuvent être dégagés.
+
+Le premier enseignement concerne la **compréhension des facteurs techniques influençant l’impact environnemental d’un site web**.  
+Au-delà des idées reçues, ce projet nous a permis d’identifier précisément les éléments ayant un poids réel sur la consommation énergétique : volume de données transférées, nombre de requêtes réseau, taille du DOM, choix des bibliothèques, stratégie de chargement des contenus ou encore durée d’affichage à l’écran.  
+Les différentes optimisations mises en œuvre : chargement dynamique, introduction d’une base de données, limitation du nombre d’éléments affichés, ont montré qu’il est possible d’agir efficacement sur ces paramètres avec des choix de conception relativement simples, à condition qu’ils soient pensés dès le départ.
+
+Le second enseignement porte sur l’**enrichissement de nos compétences techniques**.  
+Ce projet nous a permis de développer et de consolider des connaissances dans de nombreux domaines jusqu’alors peu ou pas abordés : développement frontend en JavaScript et React, mise en place d’un backend efficace, utilisation d’une base de données orientée documents (CouchDB), conteneurisation avec Docker, automatisation des tests et des mesures via GitHub Actions, ainsi que l’analyse d’impact environnemental à l’aide d’outils spécialisés comme EcoIndex et GreenFrame IT.  
+La diversité des technologies mobilisées nous a permis d’appréhender un écosystème de développement web moderne dans sa globalité.
+
+Un troisième point essentiel se trouve dans la **démarche autodidacte** qu’a imposée ce projet.  
+La majorité des problématiques rencontrées, qu’elles soient techniques, méthodologiques ou liées à l’évaluation environnementale, n’étaient pas directement couvertes par des enseignements préalables.  
+Nous avons donc dû comprendre par nous-mêmes le fonctionnement des outils, interpréter les résultats fournis, confronter nos hypothèses aux mesures et ajuster progressivement nos choix de conception.  
+Cette approche nous a amenés à considérer le développement non plus comme une simple implémentation de nos connaissances, mais plutôt comme un processus d’apprentissage continu, avec une amélioration itérative.
+
+Le projet a également mis en évidence la **réalité des améliorations possibles et mesurables** dans la gestion d’un site web.  
+Les comparaisons chiffrées avant et après optimisation montrent clairement l’impact direct de certaines décisions techniques, aussi bien côté client que côté serveur.  
+La réduction du nombre de requêtes, de la quantité de données transférées ou encore du nombre d’éléments affichés se traduit par des diminutions quantifiables de la consommation énergétique, confirmant l’intérêt d’une démarche fondée sur la mesure plutôt que sur l’intuition.
+
+Enfin, ce travail nous a replacés dans un **cycle de développement complet**, proche de conditions réelles de production.  
+De l’idée initiale à la mise en œuvre, en passant par le prototypage, les tests, l’analyse des résultats et les itérations successives, nous avons suivi les principales étapes du cycle de vie d’un projet web.  
+Cette vision globale permet de mieux comprendre les contraintes propres au développement logiciel, notamment lorsqu’il s’agit d'équilibrer fonctionnalités, expérience utilisateur et impact environnemental.
+
+En perspective, plusieurs autres axes d’amélioration pourraient être explorés : affinement des scénarios de mesure, comparaison avec d’autres choix techniques (rendu côté serveur, autres types de bases de données), ou encore étude de l’impact de nouvelles fonctionnalités sur la consommation globale.  
+**Plus largement, ce projet montre que la prise en compte des enjeux environnementaux dans le développement web n’est ni incompatible avec des technologies modernes, ni réservée à des optimisations marginales, mais peut constituer un véritable fil conducteur dans la conception d’une application.**
